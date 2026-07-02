@@ -1,132 +1,822 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AUSSIEOS MANIFESTO — The Operating System of a Fairer Australia</title>
-  <meta name="description" content="Fairness. Mateship. Agency. The AussieOS manifesto — a cultural operating system for a digital century.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AussieOS — Building Australia's Digital Operating System</title>
+<meta name="description" content="AussieOS is a research and protocol collective publishing field guides, frameworks, and specifications for a fairer digital Australia. Home of Built Different and FairGo.">
+
+<meta property="og:title" content="AussieOS — Building Australia's Digital Operating System. One Protocol at a Time.">
+<meta property="og:description" content="AussieOS is a research and protocol collective publishing field guides, frameworks, and specifications for a fairer digital Australia. Home of Built Different and FairGo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aussieos.xyz/">
+<meta property="og:image" content="https://raw.githubusercontent.com/aussieOS/aussieOS/b14c1b267ddf16a3c3f2f479079c3536cc2b90a5/fairgo/Assets/IMG_5108.webp">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AussieOS — Building Australia's Digital Operating System. One Protocol at a Time.">
+<meta name="twitter:description" content="AussieOS is a research and protocol collective publishing field guides, frameworks, and specifications for a fairer digital Australia. Home of Built Different and FairGo.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aussieOS/aussieOS/b14c1b267ddf16a3c3f2f479079c3536cc2b90a5/fairgo/Assets/IMG_5108.webp">
+
+<link rel="canonical" href="https://aussieos.xyz/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0A0A0A;
+    --surface:#111111;
+    --surface-2:#161616;
+    --gold:#C9A84C;
+    --teal:#00B4A6;
+    --text:#E8E8E8;
+    --muted:#888888;
+    --border:rgba(255,255,255,0.08);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  img{max-width:100%;display:block;}
+
+  ::selection{background:var(--gold);color:#0A0A0A;}
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  .mono{font-family:'Space Mono', monospace;}
+  .serif{font-family:'Playfair Display', serif;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    padding:22px 0;
+    background:transparent;
+    border-bottom:1px solid transparent;
+    transition:background .35s ease, border-color .35s ease, padding .35s ease;
+  }
+  header.site-nav.scrolled{
+    background:rgba(10,10,10,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .wordmark{
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--gold);
+    font-size:1.05rem;
+  }
+  .wordmark span{color:var(--text);}
+  nav.links{
+    display:flex;
+    gap:36px;
+    align-items:center;
+  }
+  nav.links a{
+    font-family:'Inter', sans-serif;
+    font-size:0.88rem;
+    font-weight:500;
+    color:var(--text);
+    opacity:0.82;
+    transition:opacity .2s ease, color .2s ease;
+    position:relative;
+  }
+  nav.links a:hover{opacity:1;color:var(--gold);}
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    z-index:110;
+  }
+  .hamburger span{
+    width:22px;height:2px;
+    background:var(--gold);
+    display:block;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-panel{
+    position:fixed;
+    inset:0;
+    background:#0A0A0A;
+    z-index:105;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+    transform:translateY(-100%);
+    transition:transform .35s ease;
+  }
+  .mobile-panel.open{transform:translateY(0);}
+  .mobile-panel a{
+    font-family:'Playfair Display', serif;
+    font-size:1.6rem;
+  }
+
+  @media (max-width:768px){
+    nav.links{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:150px 24px 80px;
+    position:relative;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.08), transparent 70%),
+      var(--bg);
+  }
+
+  .terminal{
+    width:100%;
+    max-width:620px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    text-align:left;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-header{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 16px;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dot.red{background:#FF5F56;}
+  .dot.yellow{background:#FFBD2E;}
+  .dot.green{background:#27C93F;}
+  .terminal-filename{
+    margin-left:8px;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+  .terminal-body{
+    padding:22px 20px;
+    font-family:'Space Mono', monospace;
+    font-size:0.86rem;
+    line-height:1.85;
+    color:var(--text);
+    min-height:190px;
+    white-space:pre-wrap;
+  }
+  .terminal-body .prompt-line{color:var(--gold);}
+  .cursor{
+    display:inline-block;
+    width:8px;height:1em;
+    background:var(--gold);
+    vertical-align:text-bottom;
+    animation:blink 1s steps(1) infinite;
+    margin-left:1px;
+  }
+  @keyframes blink{
+    0%,50%{opacity:1;}
+    50.01%,100%{opacity:0;}
+  }
+
+  .hero-headline{
+    font-family:'Playfair Display', serif;
+    font-weight:600;
+    font-size:clamp(1.8rem, 4.2vw, 3rem);
+    margin-top:48px;
+    max-width:780px;
+    line-height:1.25;
+  }
+  .hero-sub{
+    margin-top:20px;
+    max-width:560px;
+    color:var(--muted);
+    font-size:1rem;
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 26px;
+    border-radius:4px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-gold{
+    background:var(--gold);
+    color:#0A0A0A;
+  }
+  .btn-gold:hover{transform:translateY(-2px);background:#dab95c;}
+  .btn-outline-gold{
+    border-color:var(--gold);
+    color:var(--gold);
+    background:transparent;
+  }
+  .btn-outline-gold:hover{transform:translateY(-2px);background:rgba(201,168,76,0.08);}
+  .btn-outline-teal{
+    border-color:var(--teal);
+    color:var(--teal);
+    background:transparent;
+  }
+  .btn-outline-teal:hover{transform:translateY(-2px);background:rgba(0,180,166,0.08);}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{
+    padding:110px 0;
+    border-top:1px solid var(--border);
+  }
+  .section-label{
+    font-family:'Space Mono', monospace;
+    color:var(--gold);
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    display:block;
+  }
+
+  /* ---------- WHAT IS AUSSIEOS ---------- */
+  .os-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    margin-top:36px;
+  }
+  @media (min-width:768px){
+    .os-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .os-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-top:3px solid var(--gold);
+    border-radius:6px;
+    padding:32px 26px;
+  }
+  .os-card h3{
+    font-family:'Playfair Display', serif;
+    font-size:1.4rem;
+    margin-bottom:14px;
+  }
+  .os-card p{
+    color:var(--muted);
+    font-size:0.94rem;
+  }
+  .os-closer{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:clamp(1.1rem,2.4vw,1.5rem);
+    color:var(--text);
+    max-width:760px;
+    margin:64px auto 0;
+    line-height:1.6;
+  }
+
+  /* ---------- PROTOCOLS / WORK ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+    margin-top:36px;
+  }
+  @media (min-width:900px){
+    .work-grid{grid-template-columns:1fr 1fr;}
+  }
+  .work-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:36px 32px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .work-card.gold-accent{border-left:4px solid var(--gold);}
+  .work-card.teal-accent{border-left:4px solid var(--teal);}
+  .work-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .work-card.gold-accent .work-tag{color:var(--gold);}
+  .work-card.teal-accent .work-tag{color:var(--teal);}
+  .work-card h3{
+    font-family:'Playfair Display', serif;
+    font-size:2rem;
+  }
+  .work-sub{
+    font-weight:500;
+    font-size:0.98rem;
+  }
+  .work-desc{
+    color:var(--muted);
+    font-size:0.92rem;
+  }
+  .work-card .btn{
+    align-self:flex-start;
+    margin-top:10px;
+  }
+  .work-note{
+    text-align:center;
+    margin-top:44px;
+    color:var(--muted);
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+  }
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto-section{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:32px;
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 24px;
+    border-bottom:1px solid var(--border);
+  }
+  .manifesto-section:first-of-type{padding-top:0;}
+  .manifesto-section:last-of-type{border-bottom:none;padding-bottom:0;}
+  .manifesto-num{
+    font-family:'Space Mono', monospace;
+    font-size:3rem;
+    color:var(--gold);
+    font-weight:700;
+    line-height:1;
+    opacity:0.85;
+  }
+  .manifesto-content h3{
+    font-family:'Playfair Display', serif;
+    font-size:1.7rem;
+    margin-bottom:18px;
+  }
+  .manifesto-content p{
+    max-width:680px;
+    color:var(--text);
+    opacity:0.88;
+    font-size:0.98rem;
+    margin-bottom:14px;
+  }
+  .manifesto-content strong{color:var(--gold);}
+  @media (max-width:640px){
+    .manifesto-section{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .manifesto-num{font-size:2rem;}
+  }
+  .manifesto-terminal-wrap{
+    max-width:680px;
+    margin-top:12px;
+  }
+  .manifesto-terminal-wrap .terminal-body .cursor-static{
+    display:inline-block;
+    width:8px;height:1em;
+    background:var(--gold);
+    vertical-align:text-bottom;
+    animation:blink 1s steps(1) infinite;
+    margin-left:1px;
+  }
+
+  /* ---------- CONNECT ---------- */
+  .connect-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    text-align:center;
+    margin-top:36px;
+  }
+  @media (min-width:768px){
+    .connect-row{grid-template-columns:repeat(3,1fr);}
+  }
+  .connect-item{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:28px 20px;
+    font-family:'Space Mono', monospace;
+    font-size:0.92rem;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .connect-item:hover{border-color:var(--gold);color:var(--gold);}
+  .connect-label{
+    display:block;
+    color:var(--muted);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .pdf-link{
+    display:block;
+    text-align:center;
+    margin-top:40px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    color:var(--gold);
+    font-size:0.95rem;
+  }
+  .pdf-link:hover{text-decoration:underline;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:#0A0A0A;
+    border-top:1px solid var(--border);
+    padding:56px 0 36px;
+  }
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+    text-align:center;
+  }
+  .footer-wordmark{
+    font-family:'Space Mono', monospace;
+    color:var(--gold);
+    font-weight:700;
+    font-size:1rem;
+  }
+  .footer-links{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
+    font-size:0.85rem;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-contact{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+  .footer-contact a:hover{color:var(--teal);}
+  .footer-meta{
+    color:var(--muted);
+    font-size:0.78rem;
+    font-family:'Space Mono', monospace;
+    margin-top:8px;
+  }
+  .footer-tagline{
+    color:var(--muted);
+    font-size:0.78rem;
+    font-family:'Space Mono', monospace;
+  }
+</style>
 </head>
 <body>
-  <main class="container">
-    <pre class="boot">
-&gt; boot aussieOS
+
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="wordmark">Aussie<span>OS</span></a>
+    <nav class="links">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#protocols">Protocols</a>
+      <a href="#work">Work</a>
+      <a href="#connect">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#manifesto">Manifesto</a>
+  <a href="#protocols">Protocols</a>
+  <a href="#work">Work</a>
+  <a href="#connect">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero" style="border-top:none;padding-top:150px;">
+    <div class="terminal">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-filename">aussieOS.sh</span>
+      </div>
+      <div class="terminal-body" id="heroTerminal"></div>
+    </div>
+
+    <h1 class="hero-headline">Building Australia's digital operating system.<br>One protocol at a time.</h1>
+    <p class="hero-sub">AussieOS is a research and protocol collective publishing frameworks, field guides, and specifications for a fairer digital Australia.</p>
+    <div class="hero-actions">
+      <a href="https://aussieos.xyz/builtdifferent" class="btn btn-gold">Read Built Different</a>
+      <a href="https://aussieos.xyz/fairgo/" class="btn btn-outline-teal">Explore FairGo</a>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — WHAT IS AUSSIEOS -->
+  <section id="protocols">
+    <div class="wrap">
+      <span class="section-label">The Operating System</span>
+      <div class="os-grid">
+        <div class="os-card">
+          <h3>Research</h3>
+          <p>Independent analysis of Australia's digital economy, startup ecosystem, and innovation landscape. Built Different is our first field guide.</p>
+        </div>
+        <div class="os-card">
+          <h3>Protocols</h3>
+          <p>Technical specifications for measurable fairness in AI agents and DAOs. FairGo is our first protocol, built on Solana.</p>
+        </div>
+        <div class="os-card">
+          <h3>Frameworks</h3>
+          <p>Original conceptual tools for navigating complex systems. The Hall of Mirrors is our first framework. More are in development.</p>
+        </div>
+      </div>
+      <p class="os-closer">Everything we build is open. Everything we publish is cited. Everything we ship is honest.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — THE PROTOCOLS / WORK -->
+  <section id="work">
+    <div class="wrap">
+      <span class="section-label">Published Work</span>
+      <div class="work-grid">
+        <article class="work-card gold-accent">
+          <span class="work-tag">Founder Field Guide — 2026</span>
+          <h3 class="serif">Built Different</h3>
+          <p class="work-sub">The unvarnished guide to building, funding, and scaling a startup in Australia.</p>
+          <p class="work-desc">Hall of Mirrors framework. What the ecosystem actually looks like from inside the rooms. 25+ sources. No fluff.</p>
+          <a href="https://aussieos.xyz/builtdifferent" class="btn btn-gold">Read the Report</a>
+        </article>
+        <article class="work-card teal-accent">
+          <span class="work-tag">Protocol Specification — v1.0</span>
+          <h3 class="serif">FairGo</h3>
+          <p class="work-sub">A cultural-technical protocol that encodes fairness as a measurable, auditable variable across agents and DAOs.</p>
+          <p class="work-desc">FGV score. MatesDAO governance. Solana attestation layer. Built on Australian values.</p>
+          <a href="https://aussieos.xyz/fairgo/" class="btn btn-outline-teal">Read the Specification</a>
+        </article>
+      </div>
+      <p class="work-note">More work in progress. Fork us. Contribute. Build with us.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — THE MANIFESTO -->
+  <section id="manifesto">
+    <div class="wrap">
+      <span class="section-label">The Manifesto</span>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">01</div>
+      <div class="manifesto-content">
+        <h3>The Code Beneath the Country</h3>
+        <p>Australia's always run on an unwritten code.<br>A handshake.<br>A fair go.<br>A quiet "cheers" when someone pulls through for you.</p>
+        <p>Before there was blockchain, there was bush logic.<br>Before there were agents, there were mates who showed up.<br>We didn't need an algorithm to tell us how to treat each other.<br>We already knew.</p>
+        <p><strong>AussieOS isn't software.</strong><br>It's memory — rewritten for a digital century.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">02</div>
+      <div class="manifesto-content">
+        <h3>Fairness Is Our Protocol</h3>
+        <p>Fairness used to be a vibe. Now it needs to be a variable.<br>Written. Measured. Enforced.</p>
+        <p>So we're encoding it — line by line — into systems that can't forget.<br>DAOs. Agents. Platforms.<br>Built by people who remember what equal footing actually feels like.</p>
+        <p>Not fairness as charity.<br>Fairness as design principle.<br>Fairness as the foundation of trust in a machine-led world.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">03</div>
+      <div class="manifesto-content">
+        <h3>Mateship Is Our Network</h3>
+        <p>No one builds alone. Not in the bush, not in code.</p>
+        <p>We're done worshipping unicorns.<br>This is for the collectives, the crews, the small teams punching above their weight.<br>For the devs who'd rather share a repo than steal a headline.</p>
+        <p>Mateship isn't nostalgia — it's network architecture.<br>It's redundancy.<br>It's resilience.<br>When one node falters, another steps in. That's how this country was built.<br>That's how this system runs.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">04</div>
+      <div class="manifesto-content">
+        <h3>Agency Is Our Upgrade</h3>
+        <p>We don't wait for permission anymore.<br>We build it.<br>Automate it.<br>Give it a heartbeat and a conscience.</p>
+        <p>Every Aussie agent should know where it comes from —<br>from dirt and grit and dry humour and doing what's right even when no one's watching.</p>
+        <p>We're not making digital slaves.<br>We're raising digital mates.<br>Agents that act with fairness, loyalty, and clarity — the Australian way.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">05</div>
+      <div class="manifesto-content">
+        <h3>Open Source, Open Spirit</h3>
+        <p>The code's open. The door's open. The table's open.</p>
+        <p>We believe open systems make stronger people —<br>because transparency isn't a threat; it's an act of respect.<br>If you can see the code, you can improve it.<br>If you can see the truth, you can't look away.</p>
+        <p>That's the only way an OS stays honest —<br>through eyes, hearts, and hands that care enough to fix what's broken.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">06</div>
+      <div class="manifesto-content">
+        <h3>Legacy Through Leadership</h3>
+        <p>This isn't a startup. It's a story.<br>A lineage written in YAML and red dirt.<br>From Built Different to FairGo to MatesDAO to AussieAgent —<br>each module a reminder that leadership isn't about control.<br>It's about clarity, character, and continuity.</p>
+        <p>We don't build empires. We build ecosystems.<br>We don't chase hype. We maintain uptime.</p>
+        <p>Legacy isn't what you leave behind.<br>It's what you keep running well after you're gone.</p>
+      </div>
+    </div>
+
+    <div class="manifesto-section">
+      <div class="manifesto-num">07</div>
+      <div class="manifesto-content">
+        <h3>The Boot Sequence</h3>
+        <p><strong>Fairness: loaded.<br>Mateship: active.<br>Agency: awake.</strong></p>
+        <p>Now the system's yours.<br>Patch it. Fork it. Break it. Improve it.<br>Just make sure it runs fair.</p>
+        <p>Because this isn't just Australia's OS —<br>it's ours.</p>
+
+        <div class="manifesto-terminal-wrap">
+          <div class="terminal">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-filename">legacy.sh</span>
+            </div>
+            <div class="terminal-body">run legacy.sh
+Output: "Do the right thing. Even when no one's watching."
+System stable.
+End of file.<span class="cursor-static"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — CONTACT AND LINKS -->
+  <section id="connect">
+    <div class="wrap">
+      <span class="section-label">Connect</span>
+      <div class="connect-row">
+        <a class="connect-item" href="https://x.com/aussieosxyz/" target="_blank" rel="noopener">
+          <span class="connect-label">Twitter</span>
+          @aussieosxyz
+        </a>
+        <a class="connect-item" href="mailto:aussieosxyz@gmail.com">
+          <span class="connect-label">Email</span>
+          aussieosxyz@gmail.com
+        </a>
+        <a class="connect-item" href="https://github.com/aussieOS/aussieOS" target="_blank" rel="noopener">
+          <span class="connect-label">GitHub</span>
+          github.com/aussieOS/aussieOS
+        </a>
+      </div>
+      <a class="pdf-link" href="https://aussieos.xyz/manifesto.pdf">Download Manifesto PDF →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-wordmark">AussieOS</div>
+    <div class="footer-links">
+      <a href="https://aussieos.xyz/builtdifferent">aussieos.xyz/builtdifferent</a>
+      <a href="https://aussieos.xyz/fairgo/">aussieos.xyz/fairgo</a>
+    </div>
+    <div class="footer-contact">
+      <a href="https://x.com/aussieosxyz/" target="_blank" rel="noopener">@aussieosxyz</a>
+      <a href="mailto:aussieosxyz@gmail.com">aussieosxyz@gmail.com</a>
+    </div>
+    <div class="footer-meta">CC BY-SA 4.0 — AussieOS Collective — 2025–2026</div>
+    <div class="footer-tagline">No cookies. No tracking. Just values.</div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav background on scroll
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if(window.scrollY > 40){
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile hamburger menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+  mobilePanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobilePanel.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Typewriter effect for hero terminal
+  const heroText = `boot aussieOS
 System initializing...
 Fairness: loaded.
 Mateship: active.
 Agency: awake.
-Welcome to the new operating system of Australia.<span class="cursor">█</span>
-    </pre>
+Welcome to the new operating system of Australia.`;
 
-    <!-- Manifesto starts -->
-    <h2>1. The Code Beneath the Country</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>Australia’s always run on an unwritten code.<br>
-    A handshake.<br>
-    A fair go.<br>
-    A quiet “cheers” when someone pulls through for you.</p>
-    <p>Before there was blockchain, there was bush logic.<br>
-    Before there were agents, there were mates who showed up.<br>
-    We didn’t need an algorithm to tell us how to treat each other.<br>
-    We already knew.</p>
-    <p><strong>AussieOS isn’t software.</strong><br>
-    It’s memory — rewritten for a digital century.</p>
+  const heroTerminal = document.getElementById('heroTerminal');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    <h2>2. Fairness Is Our Protocol</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>Fairness used to be a vibe. Now it needs to be a variable.<br>
-    Written. Measured. Enforced.</p>
-    <p>So we’re encoding it — line by line — into systems that can’t forget.<br>
-    DAOs. Agents. Platforms.<br>
-    Built by people who remember what equal footing actually feels like.</p>
-    <p>Not fairness as charity.<br>
-    Fairness as design principle.<br>
-    Fairness as the foundation of trust in a machine-led world.</p>
+  function typewrite(el, text, speed){
+    let i = 0;
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
 
-    <h2>3. Mateship Is Our Network</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>No one builds alone. Not in the bush, not in code.</p>
-    <p>We’re done worshipping unicorns.<br>
-    This is for the collectives, the crews, the small teams punching above their weight.<br>
-    For the devs who’d rather share a repo than steal a headline.</p>
-    <p>Mateship isn’t nostalgia — it’s network architecture.<br>
-    It’s redundancy.<br>
-    It’s resilience.<br>
-    When one node falters, another steps in. That’s how this country was built.<br>
-    That’s how this system runs.</p>
+    function step(){
+      if(i < text.length){
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(step, speed);
+      } else {
+        el.appendChild(cursor);
+      }
+    }
+    step();
+  }
 
-    <h2>4. Agency Is Our Upgrade</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>We don’t wait for permission anymore.<br>
-    We build it.<br>
-    Automate it.<br>
-    Give it a heartbeat and a conscience.</p>
-    <p>Every Aussie agent should know where it comes from —<br>
-    from dirt and grit and dry humour and doing what’s right even when no one’s watching.</p>
-    <p>We’re not making digital slaves.<br>
-    We’re raising digital mates.<br>
-    Agents that act with fairness, loyalty, and clarity — the Australian way.</p>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if(prefersReducedMotion){
+        heroTerminal.textContent = heroText;
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        heroTerminal.appendChild(cursor);
+      } else {
+        typewrite(heroTerminal, heroText, 40);
+      }
+    }, 600);
+  });
+</script>
 
-    <h2>5. Open Source, Open Spirit</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>The code’s open. The door’s open. The table’s open.</p>
-    <p>We believe open systems make stronger people —<br>
-    because transparency isn’t a threat; it’s an act of respect.<br>
-    If you can see the code, you can improve it.<br>
-    If you can see the truth, you can’t look away.</p>
-    <p>That’s the only way an OS stays honest —<br>
-    through eyes, hearts, and hands that care enough to fix what’s broken.</p>
-
-    <h2>6. Legacy Through Leadership</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p>This isn’t a startup. It’s a story.<br>
-    A lineage written in YAML and red dirt.<br>
-    From FairGo to MatesDAO to AussieAgent —<br>
-    each module a reminder that leadership isn’t about control.<br>
-    It’s about clarity, character, and continuity.</p>
-    <p>We don’t build empires. We build ecosystems.<br>
-    We don’t chase hype. We maintain uptime.</p>
-    <p>Legacy isn’t what you leave behind.<br>
-    It’s what you keep running well after you’re gone.</p>
-
-    <h2>7. The Boot Sequence</h2>
-    <hr class="divider" aria-hidden="true"><div class="dash">⸻</div>
-    <p><strong>Fairness: loaded.<br>
-    Mateship: active.<br>
-    Agency: awake.</strong></p>
-    <p>Now the system’s yours.<br>
-    Patch it. Fork it. Break it. Improve it.<br>
-    Just make sure it runs fair.</p>
-    <p>Because this isn’t just Australia’s OS —<br>
-    it’s ours.</p>
-
-    <pre class="boot end">
-&gt; run legacy.sh
-Output: “Do the right thing. Even when no one’s watching.”
-System stable.
-End of file.
-    </pre>
-    <!-- Manifesto ends -->
-  </main>
-
-  <footer class="footer" role="contentinfo">
-    <p>Part of the FairGo / MatesDAO / AussieAgent collective.<br>
-    © 2025 AussieOS — System stable.<br>
-    No cookies. No tracking. Just values.</p>
-  </footer>
-
-<div class="actions" aria-label="actions">
-  <a class="btn btn-gray" href="/manifesto.pdf">Download Manifesto PDF</a>
-<a class="btn btn-green"
-   href="https://www.notion.so/FairGo-A-Cultural-Technical-Protocol-for-Measurable-Fairness-29593d942ed080efabafcce6269e4f96?source=copy_link"
-   target="_blank" rel="noopener">
-   Run FairGo
-</a>
-
-  <a class="btn btn-green" href="mailto:aussieosxyz@gmail.com?subject=AussieOS%20enquiry">Contact</a>
-</div>
 </body>
 </html>
