@@ -130,8 +130,6 @@
   .hamburger.open span:nth-child(2){opacity:0;}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-  .nav-close{display:none;}
-
   @media (max-width:768px){
     nav{
       position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);
@@ -142,13 +140,6 @@
     nav.open{transform:translateX(0);}
     nav ul{flex-direction:column;gap:22px;}
     .hamburger{display:flex;}
-    .nav-close{
-      display:flex;align-items:center;justify-content:center;
-      position:absolute;top:22px;right:24px;
-      width:44px;height:44px;border-radius:50%;
-      background:var(--teal-dim);border:1px solid rgba(0,180,166,0.4);
-      color:var(--teal);font-size:18px;cursor:pointer;
-    }
   }
 
   /* ---------- HERO ---------- */
@@ -531,7 +522,6 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="siteNav">
-      <button class="nav-close" id="navClose" aria-label="Close navigation">✕</button>
       <ul>
         <li><a href="#overview" data-nav>Overview</a></li>
         <li><a href="#variable" data-nav>The Variable</a></li>
@@ -1050,7 +1040,6 @@ Detailed View
   // Mobile nav toggle
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('siteNav');
-  const navClose = document.getElementById('navClose');
   const closeNav = () => {
     nav.classList.remove('open');
     hamburger.classList.remove('open');
@@ -1061,7 +1050,6 @@ Detailed View
     hamburger.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', open);
   });
-  navClose.addEventListener('click', closeNav);
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
   // Active nav highlight on scroll
