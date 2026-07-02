@@ -1,0 +1,19 @@
+<h1>FairGo MVP</h1>
+
+<input id="wallet" placeholder="Wallet address" />
+<button onclick="run()">Check Score</button>
+
+<pre id="out">---</pre>
+
+<script>
+function run() {
+  document.getElementById("out").innerText = JSON.stringify({
+    wallet: document.getElementById("wallet").value,
+    fgv: 0.84,
+    a: 0.91,
+    t: 0.79,
+    o: 0.83,
+    d: 0.92
+  }, null, 2);
+}
+</script>
