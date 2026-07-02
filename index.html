@@ -71,13 +71,14 @@
   header.site-nav{
     position:fixed;
     top:0;left:0;right:0;
-    z-index:100;
+    z-index:200;
     padding:22px 0;
     background:transparent;
     border-bottom:1px solid transparent;
     transition:background .35s ease, border-color .35s ease, padding .35s ease;
   }
-  header.site-nav.scrolled{
+  header.site-nav.scrolled,
+  header.site-nav.panel-open{
     background:rgba(10,10,10,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
@@ -766,12 +767,16 @@ End of file.<span class="cursor-static"></span></div>
     const isOpen = mobilePanel.classList.toggle('open');
     hamburgerBtn.classList.toggle('open', isOpen);
     hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    nav.classList.toggle('panel-open', isOpen);
+    hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Toggle menu');
   });
   mobilePanel.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobilePanel.classList.remove('open');
       hamburgerBtn.classList.remove('open');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('panel-open');
+      hamburgerBtn.setAttribute('aria-label', 'Toggle menu');
     });
   });
 
