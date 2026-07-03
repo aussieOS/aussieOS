@@ -1,5 +1,4 @@
 [build]
+  base = "fairgo/mvp/dashboard"
   command = "npm run build"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+  publish = ".next"
