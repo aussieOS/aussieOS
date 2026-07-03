@@ -1,0 +1,27 @@
+{
+  "wallet": "9kzWnhkPavLaKD8rAUfC2oNa4VzQ4kY22UyzwcD2VC2u",
+  "audit_window_start": "2026-06-01T00:00:00.000Z",
+  "audit_window_end": "2026-06-30T00:00:00.000Z",
+  "events": [
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-08T23:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-13T07:48:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-17T16:12:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-22T00:36:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-22T04:36:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,669 @@
+{
+  "wallet": "Dv6eNLFw1honXdzKdUzGV2FHydfYN2wkLArYwLiMNTu5",
+  "audit_window_start": "2026-06-01T00:00:00.000Z",
+  "audit_window_end": "2026-06-30T00:00:00.000Z",
+  "events": [
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T02:17:22.105Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T06:52:06.315Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T11:26:50.526Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T16:01:34.736Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T20:36:18.947Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T01:11:03.157Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T05:45:47.368Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T10:20:31.578Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T14:55:15.789Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T19:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-02T19:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-02T21:14:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T00:04:44.210Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-03T00:14:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T04:39:28.421Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T09:14:12.631Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T13:48:56.842Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-03T18:07:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T18:23:41.052Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-03T21:07:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T22:58:25.263Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T03:33:09.473Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T08:07:53.684Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T12:42:37.894Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-04T15:00:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T17:17:22.105Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-04T18:00:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T21:52:06.315Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T02:26:50.526Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T07:01:34.736Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T11:36:18.947Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-05T11:52:48.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-05T14:52:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T16:11:03.157Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T20:45:47.368Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T01:20:31.578Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T05:55:15.789Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-06T08:45:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T10:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-06T10:30:00.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-06T11:45:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T15:04:44.210Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-06T19:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T19:39:28.421Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T00:14:12.631Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T04:48:56.842Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-07T05:38:24.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-07T08:38:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T09:23:41.052Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T13:58:25.263Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T18:33:09.473Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T23:07:53.684Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-08T02:31:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-08T03:42:37.894Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-08T05:31:12.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-08T11:26:15.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-08T22:18:45.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-08T23:24:00.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-09T02:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-09T03:45:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-09T09:11:15.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-09T20:03:45.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-09T20:16:48.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-09T23:16:48.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-10T06:56:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-10T17:09:36.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-10T17:48:45.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-10T20:09:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-10T23:15:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-11T04:41:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-11T14:02:24.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-11T15:33:45.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-11T17:02:24.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-12T02:26:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-12T10:55:12.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-12T13:18:45.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-12T13:55:12.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-12T14:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-12T18:45:00.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-12T19:12:00.000Z",
+      "outcome": "upheld",
+      "resolution_seconds": 518400
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-13T00:11:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-13T07:48:00.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-13T10:48:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-13T11:03:45.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-13T21:56:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-14T04:40:48.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-14T07:40:48.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-14T08:48:45.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-14T14:15:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-14T19:41:15.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-15T01:33:36.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-15T04:33:36.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-15T06:33:45.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-15T16:50:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-15T22:26:24.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-16T01:26:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T02:30:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T12:10:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-16T19:19:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T21:50:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-16T22:19:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-17T07:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-17T07:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-17T16:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-17T17:10:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-17T19:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T02:50:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-18T09:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T12:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-18T13:04:48.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-18T16:04:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T22:10:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-19T07:50:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-19T09:57:36.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-19T12:57:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-19T17:30:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T03:10:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-20T06:50:24.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-20T09:50:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T12:50:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T22:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-20T22:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-21T03:43:12.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-21T06:43:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-21T08:10:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-21T17:50:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-22T00:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-22T03:30:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-22T03:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-22T13:10:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-22T21:28:48.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-22T22:50:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-23T00:28:48.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-23T08:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-23T18:10:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-23T18:21:36.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-23T21:21:36.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-24T03:50:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-24T04:48:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-24T13:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-24T13:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-24T15:14:24.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-24T18:14:24.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-24T23:10:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-25T08:50:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-25T12:07:12.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-25T15:07:12.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-25T18:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-26T04:10:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-26T09:00:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-26T12:00:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-26T13:50:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-26T23:30:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-27T05:52:48.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-27T08:52:48.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-27T09:10:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-27T18:50:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-28T02:45:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-28T04:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-28T04:30:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-28T05:45:36.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-28T14:10:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-28T23:50:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-29T09:30:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-29T19:10:00.000Z"
+    }
+  ]
+}

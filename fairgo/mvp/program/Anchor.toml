@@ -6,7 +6,7 @@ seeds = false
 skip-lint = false
 
 [programs.devnet]
-fairgo = "Fairgo1111111111111111111111111111111111"
+fairgo = "CtoDboUEyiBoeJRgZDG8ovW6FQhFd5nE5L1VxQzFmgFS"
 
 [registry]
 url = "https://api.apr.dev"

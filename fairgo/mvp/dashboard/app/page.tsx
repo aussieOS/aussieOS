@@ -82,10 +82,17 @@ export default function Page() {
         />
 
         {status.kind === "not-found" && (
-          <div className="border border-white/10 rounded-sm p-5 text-sm font-sans text-slate-400">
-            No FairGo data found for <span className="font-mono text-slate-300">{status.wallet}</span>.
-            No on-chain attestation exists for this wallet on Devnet, and no locally bundled
-            result matches it. Try the "Paste JSON" tab with calculator output instead.
+          <div className="border border-white/10 rounded-sm p-5 text-sm font-sans text-slate-300">
+            <p className="text-slate-100">No FairGo record exists for this wallet.</p>
+            <p className="text-slate-500 mt-1">
+              <span className="font-mono text-slate-400">{status.wallet}</span> has no on-chain
+              attestation on Devnet and no locally bundled result. FairGo never generates a score
+              for a wallet it has no real data for.
+            </p>
+            <p className="text-slate-500 mt-3">
+              Try one of the <span className="text-slate-300">Demo Wallets</span> above, or switch
+              to the <span className="text-slate-300">Paste JSON</span> tab with calculator output.
+            </p>
           </div>
         )}
 
@@ -97,9 +104,9 @@ export default function Page() {
 
         {status.kind === "result" && <ResultsView record={status.record} />}
 
-        <footer className="text-xs text-slate-600 font-sans pt-8 border-t border-white/5">
+        <p className="text-xs text-slate-600 font-sans pt-8 border-t border-white/5">
           Read-only interface. Does not evaluate or validate fairness claims.
-        </footer>
+        </p>
       </div>
     </main>
   );

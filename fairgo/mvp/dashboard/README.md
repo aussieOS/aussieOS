@@ -5,6 +5,26 @@ program produce — no scoring logic lives here, no reinterpretation of
 metrics, no submission/signing/broadcast capability anywhere in this
 package (see `lib/solana.ts` — it can only call `getAccountInfo`).
 
+## Three-state model (per Stage 1 alignment)
+
+The dashboard never fabricates a score. For any wallet, exactly one of these
+applies:
+
+1. **Real data wallet** — the wallet has a locally bundled result (computed
+   by the calculator from a real, authored behaviour log) and/or a live
+   on-chain attestation. Full FGV output is shown.
+2. **Demo wallet** — a curated subset of (1), specifically the wallets in
+   `lib/demoWallets.ts`, surfaced in the UI picker for testing. Tagged
+   visibly as "Demo Wallet" in the results view so it's never confused with
+   a live third-party lookup.
+3. **Unknown wallet** — no bundled result and no on-chain attestation found.
+   Shows a structured "No FairGo record exists for this wallet" state with
+   links to try a demo wallet or paste calculator JSON instead. **The
+   dashboard will never generate a hash-seeded or synthetic score for an
+   arbitrary wallet** — doing so would fabricate a trust signal about a
+   real, possibly identifiable address, which contradicts ADR-003
+   (behaviour-derived, not invented) and the whole premise of the project.
+
 ## Setup
 
 ```bash
@@ -28,7 +48,9 @@ NEXT_PUBLIC_SOLANA_RPC_URL=<devnet RPC endpoint, defaults to clusterApiUrl("devn
   this is combined with a small locally-bundled results registry
   (`lib/localResults.ts` / `sample-data/results/`) purely for the
   Behavioural Components section — and the UI always labels which source
-  each part of the display came from, never merges silently.
+  each part of the display came from, never merges silently. A "Demo
+  Wallets" picker (`lib/demoWallets.ts`) surfaces five curated wallets from
+  that same bundled registry for one-click testing.
 - **Paste JSON** — accepts the exact `FGV Result` object the calculator's
   CLI prints. Useful before anything is actually deployed/published to
   Devnet, or for reviewing a result that hasn't been published yet. Always
