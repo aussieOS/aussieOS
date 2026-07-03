@@ -1,0 +1,18 @@
+{
+  "wallet": "8pT7q2W4nZ3rY6uJ1xK9mD5vC0bH2fS7eL4gA6oR3sQ1",
+  "A": 0.999006,
+  "T": 0.9325,
+  "O": 0.925,
+  "D": 0.530952,
+  "FGV": 0.846865,
+  "confidence": {
+    "lower": 0.826865,
+    "upper": 0.866865
+  },
+  "timestamp": "2026-07-01T09:15:00.000Z",
+  "schema_version": 1,
+  "audit_window_start": "2026-06-01T00:00:00.000Z",
+  "audit_window_end": "2026-06-30T00:00:00.000Z",
+  "sample_size": 184,
+  "evidence_hash_hex": "8dbf59be4c8c9a005ebe7954522197512bd92eec8afcb0fa90549dc9d003a40e"
+}
