@@ -2,6 +2,7 @@
 
 import { DisplayRecord } from "@/lib/types";
 import { formatScore, truncateAddress, toFixedPoint, isoToUnixSeconds } from "@/lib/format";
+import { DEMO_WALLETS } from "@/lib/demoWallets";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -38,11 +39,19 @@ function BehaviouralComponent({
 
 export function ResultsView({ record }: { record: DisplayRecord }) {
   const hasOnChain = record.onChain !== null;
+  const demoWallet = DEMO_WALLETS.find((d) => d.wallet === record.wallet);
 
   return (
     <div className="flex flex-col gap-10">
       <Field label="Subject Wallet">
-        <span title={record.wallet}>{truncateAddress(record.wallet, 10, 10)}</span>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span title={record.wallet}>{truncateAddress(record.wallet, 10, 10)}</span>
+          {demoWallet && (
+            <span className="text-xs font-sans px-2 py-0.5 rounded-sm border border-amber-400/40 text-amber-400">
+              Demo Wallet — {demoWallet.label}
+            </span>
+          )}
+        </div>
       </Field>
 
       {/* Trust Signal — the single most prominent number on the page,

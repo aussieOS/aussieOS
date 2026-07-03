@@ -6,6 +6,11 @@
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
   --font-mono: "Space Mono", monospace;
+
+  --bg: #0a0f0e;
+  --border: rgba(255, 255, 255, 0.1);
+  --muted: #94a3b8;
+  --teal: #00b4a6;
 }
 
 html {
@@ -27,4 +32,80 @@ body {
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* AussieOS masthead wordmark + footer treatment (shared with fairgo.html) */
+/* ------------------------------------------------------------------ */
+
+.wordmark {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #e8ecea;
+  text-decoration: none;
+  font-size: 15px;
+}
+.wordmark span {
+  color: var(--teal);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 52px 0;
+  /* Intentional double declaration: literal hex first as a fallback against
+     mobile Safari auto-lightening unstyled dark pages, var(--bg) second.
+     Keep both lines even though they look redundant. */
+  background: #0a0a0a;
+  background: var(--bg);
+}
+footer .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+footer .wordmark {
+  font-size: 13px;
+}
+footer .foot-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+footer a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--teal);
+}
+footer .meta {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.foot-contact {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.foot-contact a {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.foot-contact a:hover {
+  color: var(--teal);
 }

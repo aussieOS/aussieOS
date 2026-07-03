@@ -1,0 +1,907 @@
+{
+  "wallet": "5USjS2Rodv85eJSDwVWBvTnmcrZ3aJmDkGw8JFw2xpXq",
+  "audit_window_start": "2026-06-01T00:00:00.000Z",
+  "audit_window_end": "2026-06-30T00:00:00.000Z",
+  "events": [
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T03:52:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T11:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-01T19:20:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T03:04:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T10:48:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-02T17:03:50.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-02T18:32:00.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-02T19:03:50.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T02:16:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-03T05:35:31.200Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-03T07:35:31.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T10:00:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-03T17:44:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-03T18:07:12.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-03T18:07:12.000Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-03T20:07:12.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-03T23:46:30.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T01:28:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-04T06:38:52.800Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-04T08:38:52.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T09:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-04T16:56:00.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-04T17:46:30.000Z",
+      "outcome": "upheld",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-04T19:10:33.600Z"
+    },
+    {
+      "type": "task_failed",
+      "timestamp": "2026-06-04T21:10:33.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T00:40:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-05T07:42:14.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T08:24:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-05T09:42:14.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T16:08:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-05T20:13:55.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-05T22:13:55.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-05T23:52:00.000Z"
+    },
+    {
+      "type": "disclosure_published",
+      "timestamp": "2026-06-06T05:16:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T07:36:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-06T08:45:36.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-06T08:45:36.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-06T10:45:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T15:20:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-06T21:17:16.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-06T23:04:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-06T23:17:16.800Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-07T01:43:30.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T06:48:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-07T09:48:57.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-07T11:48:57.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T14:32:00.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-07T19:43:30.000Z",
+      "outcome": "denied",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-07T22:16:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-07T22:20:38.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-08T00:20:38.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-08T06:00:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-08T10:52:19.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-08T12:52:19.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-08T13:44:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-08T21:28:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-08T23:24:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-08T23:24:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-09T01:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-09T05:12:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-09T11:55:40.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-09T12:56:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-09T13:55:40.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-09T20:40:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-10T00:27:21.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-10T02:27:21.600Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-10T03:40:30.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-10T04:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-10T12:08:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-10T12:59:02.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-10T14:59:02.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-10T19:52:00.000Z"
+    },
+    {
+      "type": "disclosure_published",
+      "timestamp": "2026-06-10T20:38:24.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-10T21:40:30.000Z",
+      "outcome": "denied",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-11T01:30:43.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-11T03:30:43.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-11T03:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-11T11:20:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-11T14:02:24.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-11T14:02:24.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-11T16:02:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-11T19:04:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-12T02:34:04.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-12T02:48:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-12T04:34:04.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-12T10:32:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-12T15:05:45.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-12T17:05:45.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-12T18:16:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-13T02:00:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-13T03:37:26.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-13T05:37:26.400Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-13T05:37:30.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-13T09:44:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-13T16:09:07.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-13T17:28:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-13T18:09:07.200Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-13T23:37:30.000Z",
+      "outcome": "upheld",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-14T01:12:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-14T04:40:48.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-14T04:40:48.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-14T06:40:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-14T08:56:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-14T16:40:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-14T17:12:28.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-14T19:12:28.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-15T00:24:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-15T05:44:09.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-15T07:44:09.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-15T08:08:00.000Z"
+    },
+    {
+      "type": "disclosure_published",
+      "timestamp": "2026-06-15T12:00:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-15T15:52:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-15T18:15:50.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-15T20:15:50.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-15T23:36:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-16T06:47:31.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T07:20:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-16T07:34:30.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-16T08:47:31.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T15:04:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-16T19:19:12.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-16T19:19:12.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-16T21:19:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-16T22:48:00.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-17T01:34:30.000Z",
+      "outcome": "denied",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-17T06:32:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-17T07:50:52.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-17T09:50:52.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-17T14:16:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-17T20:22:33.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-17T22:00:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-17T22:22:33.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T05:44:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-18T08:54:14.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-18T10:54:14.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T13:28:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-18T21:12:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-18T21:25:55.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-18T23:25:55.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-19T04:56:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-19T09:31:30.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-19T09:57:36.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-19T09:57:36.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-19T11:57:36.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-19T12:40:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-19T20:24:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-19T22:29:16.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-20T00:29:16.800Z"
+    },
+    {
+      "type": "disclosure_published",
+      "timestamp": "2026-06-20T03:21:36.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-20T03:31:30.000Z",
+      "outcome": "denied",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T04:08:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-20T11:00:57.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T11:52:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-20T13:00:57.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-20T19:36:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-20T23:32:38.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-21T01:32:38.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-21T03:20:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-21T11:04:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-21T12:04:19.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-21T14:04:19.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-21T18:48:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-22T00:36:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-22T00:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-22T02:32:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-22T02:36:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-22T10:16:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-22T11:28:30.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-22T13:07:40.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-22T15:07:40.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-22T18:00:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-23T01:39:21.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-23T01:44:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-23T03:39:21.600Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-23T05:28:30.000Z",
+      "outcome": "upheld",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-23T09:28:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-23T14:11:02.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-23T16:11:02.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-23T17:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-24T00:56:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-24T02:42:43.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-24T04:42:43.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-24T08:40:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-24T15:14:24.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-24T15:14:24.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-24T16:24:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-24T17:14:24.000Z"
+    },
+    {
+      "type": "disclosure_published",
+      "timestamp": "2026-06-24T18:43:12.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-25T00:08:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-25T03:46:04.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-25T05:46:04.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-25T07:52:00.000Z"
+    },
+    {
+      "type": "appeal_submitted",
+      "timestamp": "2026-06-25T13:25:30.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-25T15:36:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-25T16:17:45.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-25T18:17:45.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-25T23:20:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-26T04:49:26.400Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-26T06:49:26.400Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-26T07:04:00.000Z"
+    },
+    {
+      "type": "appeal_resolved",
+      "timestamp": "2026-06-26T07:25:30.000Z",
+      "outcome": "denied",
+      "resolution_seconds": 64800
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-26T14:48:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-26T17:21:07.200Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-26T19:21:07.200Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-26T22:32:00.000Z"
+    },
+    {
+      "type": "access_denied",
+      "timestamp": "2026-06-27T05:52:48.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-27T05:52:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-27T06:16:00.000Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-27T07:52:48.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-27T14:00:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-27T18:24:28.800Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-27T20:24:28.800Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-27T21:44:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-28T05:28:00.000Z"
+    },
+    {
+      "type": "task_accepted",
+      "timestamp": "2026-06-28T06:56:09.600Z"
+    },
+    {
+      "type": "task_completed",
+      "timestamp": "2026-06-28T08:56:09.600Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-28T13:12:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-28T20:56:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-29T04:40:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-29T12:24:00.000Z"
+    },
+    {
+      "type": "access_granted",
+      "timestamp": "2026-06-29T20:08:00.000Z"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,7 +32,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${spaceMono.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

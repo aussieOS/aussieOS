@@ -79,8 +79,14 @@ That hex string, converted to 32 bytes, is exactly what gets passed as
 - `src/encode.ts` — scales floats to the fixed-point `u32` the on-chain
   program expects and computes the evidence hash.
 - `src/cli.ts` — run the whole pipeline against a file.
-- `scripts/generate-sample-data.ts` — regenerates the sample evidence file.
-- `sample-data/wallet-example.json` — matches the brief's example wallet
-  (100 access decisions at 95/5, ~40 tasks, 2 appeals/1 resolved, 1
-  disclosure) with a synthetic but deterministic timestamp spread across
-  June 2026.
+- `scripts/generate-sample-data.ts` — regenerates the original sample
+  evidence file (wallet `8pT7q2W4...`).
+- `scripts/generate-demo-wallets.ts` — generates four additional curated
+  demo wallets (high trust, low trust, sparse activity, heavy redress
+  activity) used by the dashboard's "Demo Wallets" picker. **Every number
+  these produce comes from the real calculator run against hand-authored
+  event logs — nothing here is hash-seeded or invented from the wallet
+  address.** If FairGo ever needs more demo wallets, extend this script,
+  don't fabricate a result directly.
+- `sample-data/` — the evidence files these scripts produce, one per demo
+  wallet, named by wallet address.

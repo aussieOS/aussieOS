@@ -14,3 +14,9 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+AussieOS repo
+├── fairgo (product system)
+│   └── mvp/dashboard (Next.js app)
+├── builtdifferent (site content)
+├── index.html (landing)

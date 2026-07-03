@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { DEMO_WALLETS } from "@/lib/demoWallets";
+import { truncateAddress } from "@/lib/format";
 
 type Mode = "wallet" | "json";
 
@@ -29,28 +31,64 @@ export function InputPanel({
       </div>
 
       {mode === "wallet" ? (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (walletValue.trim()) onWalletSubmit(walletValue.trim());
-          }}
-          className="flex gap-2"
-        >
-          <input
-            type="text"
-            value={walletValue}
-            onChange={(e) => setWalletValue(e.target.value)}
-            placeholder="Paste a Solana wallet address"
-            className="flex-1 bg-black/30 border border-white/15 rounded-sm px-3 py-2 font-mono text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400"
-          />
-          <button
-            type="submit"
-            disabled={isLoading || !walletValue.trim()}
-            className="px-4 py-2 rounded-sm bg-teal-400 text-black text-sm font-sans font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-teal-300 transition-colors"
+        <>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (walletValue.trim()) onWalletSubmit(walletValue.trim());
+            }}
+            className="flex gap-2"
           >
-            {isLoading ? "Looking up…" : "Look up"}
-          </button>
-        </form>
+            <input
+              type="text"
+              value={walletValue}
+              onChange={(e) => setWalletValue(e.target.value)}
+              placeholder="Paste a Solana wallet address"
+              className="flex-1 bg-black/30 border border-white/15 rounded-sm px-3 py-2 font-mono text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400"
+            />
+            <button
+              type="submit"
+              disabled={isLoading || !walletValue.trim()}
+              className="px-4 py-2 rounded-sm bg-teal-400 text-black text-sm font-sans font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-teal-300 transition-colors"
+            >
+              {isLoading ? "Looking up…" : "Look up"}
+            </button>
+          </form>
+
+          <div className="mt-5">
+            <span className="text-xs uppercase tracking-[0.14em] text-slate-500 font-sans">
+              Demo Wallets
+            </span>
+            <p className="text-xs text-slate-500 font-sans mt-1 mb-3">
+              Curated wallets with real, calculator-computed results — for testing only, not
+              on-chain records.
+            </p>
+            <div className="flex flex-col gap-2">
+              {DEMO_WALLETS.map((demo) => (
+                <button
+                  key={demo.wallet}
+                  type="button"
+                  onClick={() => {
+                    setWalletValue(demo.wallet);
+                    onWalletSubmit(demo.wallet);
+                  }}
+                  disabled={isLoading}
+                  className="text-left border border-white/10 rounded-sm px-3 py-2 hover:border-teal-400/40 hover:bg-white/5 transition-colors disabled:opacity-40"
+                >
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-sm font-sans text-slate-200">{demo.label}</span>
+                    <span className="text-xs font-mono text-slate-500">
+                      {truncateAddress(demo.wallet, 4, 4)}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-500 font-sans mt-0.5">
+                    {demo.description}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
       ) : (
         <form
           onSubmit={(e) => {
