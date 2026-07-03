@@ -1,0 +1,17 @@
+{
+  "name": "fairgo-calculator",
+  "version": "0.1.0",
+  "description": "FairGo MVP — deterministic off-chain FGV calculator",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "compute": "ts-node src/cli.ts",
+    "generate-sample-data": "ts-node scripts/generate-sample-data.ts",
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0"
+  }
+}
