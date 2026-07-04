@@ -50,7 +50,7 @@
 
   .toc-strip{background:var(--slate);padding:20px 48px;position:sticky;top:0;z-index:100;overflow-x:auto;scrollbar-width:none;}
   .toc-strip::-webkit-scrollbar{display:none;}
-  .toc-inner{max-width:900px;margin:0 auto;display:flex;gap:28px;white-space:nowrap;}
+  .toc-inner{display:flex;gap:28px;white-space:nowrap;}
   .toc-inner a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(247,244,239,0.55);text-decoration:none;transition:color 0.2s;}
   .toc-inner a:hover{color:var(--gold);}
 
@@ -170,19 +170,44 @@
   .finale-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
   .finale h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.1;color:var(--paper);margin-bottom:40px;}
   .finale h2 em{color:var(--gold);font-style:italic;}
-  .finale p{font-size:19px;line-height:1.75;color:rgba(247,244,239,0.78);max-width:680px;margin-bottom:24px;}
+  .finale p{font-size:17px;line-height:1.75;color:rgba(247,244,239,0.78);max-width:680px;margin-bottom:24px;}
   .finale p strong{color:var(--paper);}
   .finale-line{height:2px;background:var(--gold);width:60px;margin:48px 0;}
   .finale-rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.15);margin:40px 0;}
   .finale-room{background:rgba(13,13,13,0.85);padding:20px 22px;}
   .finale-room-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
   .finale-room-state{font-size:14px;color:rgba(247,244,239,0.65);font-style:italic;}
-  .finale-gutpunch{margin-top:48px;padding:40px;border:1px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.04);}
-  .finale-gutpunch p{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-style:italic;color:var(--paper);line-height:1.55;margin-bottom:16px;}
-  .finale-gutpunch p:last-child{margin-bottom:0;color:var(--gold);}
+  .finale-gutpunch{margin-top:48px;padding:56px;background:rgba(13,13,13,0.6);border:1px solid rgba(201,168,76,0.15);text-align:center;width:100%;}
+  .finale-gutpunch p{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--paper);line-height:1.65;margin-bottom:20px;max-width:680px;margin-left:auto;margin-right:auto;}
+  .finale-gutpunch p:last-child{margin-bottom:0;color:var(--gold);max-width:680px;}
   .finale-kicker{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-style:italic;color:var(--gold);line-height:1.5;margin-top:56px;padding-top:56px;border-top:1px solid rgba(201,168,76,0.3);}
 
+  .btn-v3-wrap{position:relative;padding:9px;display:inline-block;}
+  .btn-v3-wrap::before,.btn-v3-wrap::after{content:'';position:absolute;width:16px;height:16px;border:1px solid var(--gold);transition:width .3s ease,height .3s ease;}
+  .btn-v3-wrap::before{top:0;left:0;border-right:none;border-bottom:none;}
+  .btn-v3-wrap::after{bottom:0;right:0;border-left:none;border-top:none;}
+  .btn-v3-wrap:hover::before,.btn-v3-wrap::after{transition:width .3s ease,height .3s ease;}
+  .btn-v3-wrap:hover::before,.btn-v3-wrap:hover::after{width:100%;height:100%;}
+  .btn-v3{position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 34px;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:1.1rem;color:rgba(247,244,239,0.9);background:#111111;border:1px solid rgba(255,255,255,0.08);cursor:pointer;z-index:1;transition:color .3s ease;text-decoration:none;}
+  .btn-v3 .arrow{font-family:'Space Mono',monospace;font-style:normal;font-size:0.9rem;color:#00B4A6;transition:transform .3s ease;}
+  .btn-v3-wrap:hover .btn-v3{color:var(--gold);}
+  .btn-v3-wrap:hover .arrow{transform:translateX(6px);}
+
   .appendix{background:var(--paper);padding:88px 48px;}
+
+  /* Homepage-matched footer styles */
+  .site-footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.08);padding:56px 48px 36px;}
+  .footer-inner-wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
+  .footer-wordmark{font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;font-size:1rem;}
+  .footer-links{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;font-size:0.85rem;}
+  .footer-links a{color:rgba(247,244,239,0.7);text-decoration:none;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-contact{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;font-size:0.85rem;color:var(--mid);}
+  .footer-contact a{color:var(--mid);text-decoration:none;}
+  .footer-contact a:hover{color:#00B4A6;}
+  .footer-meta{color:var(--mid);font-size:0.78rem;font-family:'Space Mono',monospace;margin-top:8px;}
+  .footer-tagline{color:var(--mid);font-size:0.78rem;font-family:'Space Mono',monospace;}
+  @media(max-width:720px){.site-footer{padding:48px 24px 32px;}}
   .appendix-inner{max-width:900px;margin:0 auto;}
   .appendix-inner .section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
   .appendix-inner .section-label::after{content:'';flex:1;height:1px;background:var(--gold-light);max-width:60px;}
@@ -943,7 +968,7 @@
       <p>The ecosystem isn't waiting to be ready for you. You're how it gets ready. Go build something worth re-reading.</p>
     </div>
 
-    <div style="margin-top:48px;text-align:center;">
+    <div style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:0;">
       <a
         href="https://twitter.com/intent/tweet?text=Built%20Different%20%E2%80%94%20a%20founder%27s%20field%20guide%20to%20Australia%27s%20digital%20economy.%20The%20Hall%20of%20Mirrors%20framework%2C%20current%20Q1%202026%20data%2C%20and%20what%20the%20ecosystem%20actually%20looks%20like%20from%20inside%20the%20rooms.%20https%3A%2F%2Faussieos.xyz%2Fbuiltdifferent%20via%20%40AussieOSxyz"
         target="_blank"
@@ -952,6 +977,12 @@
         onmouseover="this.style.background='rgba(201,168,76,0.1)'"
         onmouseout="this.style.background='transparent'"
       >Share This Report</a>
+
+      <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(247,244,239,0.3);margin:24px 0;">or</p>
+
+      <div class="btn-v3-wrap">
+        <a href="https://aussieos.xyz/apps/hall-of-mirrors/" target="_blank" class="btn-v3">Enter Hall of Mirrors <span class="arrow">→</span></a>
+      </div>
     </div>
 
     <p class="finale-kicker">"The best time to build an Australian tech company was twenty years ago.<br>The second best time is right now — and now you know exactly how."</p>
@@ -1043,10 +1074,26 @@
   <div style="margin-top:64px;padding-top:48px;border-top:1px solid var(--rule);">
     <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">About AussieOS</p>
     <p style="font-size:15px;line-height:1.7;color:var(--mid);max-width:640px;margin-bottom:16px;">AussieOS is an open initiative exploring how Australian values — fairness, mateship, agency and openness — can be expressed through modern digital systems, communities and technologies.</p>
-    <p style="font-size:15px;margin-bottom:0;"><strong>Learn more:</strong> <a href="https://aussieos.xyz" target="_blank" style="color:var(--slate);text-decoration:underline;text-decoration-color:var(--gold-light);text-underline-offset:3px;">AussieOS Manifesto</a></p>
-    <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--mid);margin-top:16px;margin-bottom:0;"><a href="https://x.com/aussieosxyz" target="_blank" style="color:var(--mid);text-decoration:none;">@aussieosxyz</a> &middot; <a href="mailto:aussieosxyz@gmail.com" style="color:var(--mid);text-decoration:none;">aussieosxyz@gmail.com</a></p>
+    <p style="font-size:15px;margin-bottom:0;"><strong>Learn more:</strong> <a href="https://aussieos.xyz" target="_blank" style="color:var(--slate);text-decoration:underline;text-decoration-color:var(--gold-light);text-underline-offset:3px;">aussieos.xyz</a></p>
   </div>
 </div>
+
+<footer class="site-footer">
+  <div class="footer-inner-wrap">
+    <div class="footer-wordmark">AussieOS</div>
+    <div class="footer-links">
+      <a href="https://aussieos.xyz/builtdifferent">aussieos.xyz/builtdifferent</a>
+      <a href="https://aussieos.xyz/fairgo/">aussieos.xyz/fairgo</a>
+    </div>
+    <div class="footer-contact">
+      <a href="https://x.com/aussieosxyz/" target="_blank" rel="noopener">@aussieosxyz</a>
+      <a href="mailto:aussieosxyz@gmail.com">aussieosxyz@gmail.com</a>
+      <a href="https://github.com/aussieOS/aussieOS" target="_blank" rel="noopener">github.com/aussieOS/aussieOS</a>
+    </div>
+    <div class="footer-meta">CC BY-SA 4.0 — AussieOS Collective — 2025–2026</div>
+    <div class="footer-tagline">No cookies. No tracking. Just values.</div>
+  </div>
+</footer>
 
 </body>
 </html>
