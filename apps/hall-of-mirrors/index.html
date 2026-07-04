@@ -8,8 +8,8 @@
 <title>Hall of Mirrors — See How VCs, Angels & Grants Actually Read Your Startup | AussieOS</title>
 <meta name="description" content="Free Claude skill. Your startup is read six different ways — VC, angels, government, grants, accelerators, corporates — and most founders don't find out where those readings clash until it costs them a round or a grant. Run the diagnostic before they do.">
 
-<meta property="og:title" content="You're pitching one story. The ecosystem is reading six.">
-<meta property="og:description" content="A free Claude skill that shows exactly where your startup is fundable to a VC and ineligible to a grants body — before you find out the hard way. From the makers of Built Different.">
+<meta property="og:title" content="One startup. Six verdicts.">
+<meta property="og:description" content="A free Claude skill that shows how VC, angels, grants, government, accelerators & corporates each read your startup.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AussieOS">
 <meta property="og:url" content="https://aussieos.xyz/apps/hall-of-mirrors/">
@@ -20,8 +20,8 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@aussieosxyz">
-<meta name="twitter:title" content="You're pitching one story. The ecosystem is reading six.">
-<meta name="twitter:description" content="A free Claude skill that shows exactly where your startup is fundable to a VC and ineligible to a grants body — before you find out the hard way. From the makers of Built Different.">
+<meta name="twitter:title" content="One startup. Six verdicts.">
+<meta name="twitter:description" content="A free Claude skill that shows how VC, angels, grants, government, accelerators & corporates each read your startup.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/aussieOS/aussieOS/45160b866ea22ca9b266a21cf8af4934aaa3532e/builtdifferent/assets/THE%20HALL%20OF%20MIRRORS.png">
 <meta name="twitter:image:alt" content="Hall of Mirrors — a founder legibility diagnostic from AussieOS.">
 
@@ -183,6 +183,18 @@
 
   /* ---------- SECTION SHARED ---------- */
   section{padding:104px 0;border-top:1px solid var(--border);}
+  .framework-image{padding:0 0 80px;}
+  .framework-image .wrap{display:flex;justify-content:center;}
+  .framework-image img{
+    max-width:100%;
+    width:640px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  @media(max-width:680px){
+    .framework-image img{width:100%;}
+  }
   .section-label{
     font-family:'Space Mono', monospace;color:var(--gold);font-size:0.78rem;
     letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:block;
@@ -421,6 +433,17 @@
       <a href="#prompt" class="btn btn-outline-gold">Copy the Prompt</a>
     </div>
     <p class="hero-learn">Born out of the Hall of Mirrors framework in <a href="https://aussieos.xyz/builtdifferent/">Built Different →</a></p>
+  </section>
+
+  <!-- FRAMEWORK IMAGE -->
+  <section class="framework-image" style="border-top:none;">
+    <div class="wrap">
+      <img
+        src="https://raw.githubusercontent.com/aussieOS/aussieOS/de7a5cc6d012d6d87d0c40585dae266dfd6ecca0/builtdifferent/assets/THE%20HALL%20OF%20MIRRORS.png"
+        alt="The Hall of Mirrors framework — how the same startup is read differently across VC, angels, government, grants, accelerators, and corporates, from AussieOS's Built Different report."
+        loading="lazy"
+      >
+    </div>
   </section>
 
   <!-- WHAT IT IS -->
@@ -695,7 +718,12 @@ OUTPUT ORDER: intake summary (gaps marked) → six room readings → optional ov
       <h2 class="section-title" style="margin:0 auto;">Know a founder standing in front of the wrong mirror?</h2>
       <p class="section-intro" style="margin-left:auto;margin-right:auto;text-align:center;">Share the tool, not your results — Hall of Mirrors doesn't score you, so there's nothing to brag about. Just a diagnostic worth having before the pitch, not after.</p>
       <div class="hero-actions">
-        <button id="shareXBtn" class="btn btn-outline-gold">Share Hall of Mirrors on X →</button>
+        <a
+          href="https://twitter.com/intent/tweet?text=Your%20startup%20gets%20read%20six%20different%20ways%20%E2%80%94%20VC%2C%20angels%2C%20government%2C%20grants%2C%20accelerators%2C%20corporates.%20Hall%20of%20Mirrors%20is%20a%20free%20Claude%20skill%20that%20shows%20you%20all%20six.%20https%3A%2F%2Faussieos.xyz%2Fapps%2Fhall-of-mirrors%2F%20via%20%40aussieosxyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline-gold"
+        >Share Hall of Mirrors on X →</a>
       </div>
     </div>
   </section>
@@ -764,15 +792,6 @@ OUTPUT ORDER: intake summary (gaps marked) → six room readings → optional ov
       window.getSelection().addRange(r);
       copyBtn.textContent = 'Select all → copy';
     }
-  });
-
-  // Share on X
-  const shareXBtn = document.getElementById('shareXBtn');
-  shareXBtn.addEventListener('click', () => {
-    const pageUrl = 'https://aussieos.xyz/apps/hall-of-mirrors/';
-    const tweetText = "Every founder pitches one story. The ecosystem reads it six ways — VC, angels, government, grants, accelerators, corporates. Hall of Mirrors is a free Claude skill from @aussieosxyz that shows you all six readings before the gaps cost you something.";
-    const intentUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) + '&url=' + encodeURIComponent(pageUrl);
-    window.open(intentUrl, '_blank', 'noopener,noreferrer,width=600,height=520');
   });
 
   // Hero typewriter

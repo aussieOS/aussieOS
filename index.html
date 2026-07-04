@@ -243,6 +243,7 @@
     gap:16px;
     flex-wrap:wrap;
     justify-content:center;
+    align-items:center;
   }
 
   .btn{
@@ -275,6 +276,56 @@
     background:transparent;
   }
   .btn-outline-teal:hover{transform:translateY(-2px);background:rgba(0,180,166,0.08);}
+  .btn-teal-solid{
+    background:var(--teal);
+    color:#0A0A0A;
+  }
+  .btn-teal-solid:hover{transform:translateY(-2px);background:#1fcabb;}
+
+  /* ---------- MIRROR FRAME BUTTON (Hall of Mirrors) ---------- */
+  .btn-frame-wrap{
+    position:relative;
+    display:inline-flex;
+    padding:3px;
+  }
+  .btn-frame-wrap::before,
+  .btn-frame-wrap::after{
+    content:'';
+    position:absolute;
+    width:14px;height:14px;
+    border:1px solid var(--gold);
+    transition:width .3s ease, height .3s ease;
+  }
+  .btn-frame-wrap::before{top:0;left:0;border-right:none;border-bottom:none;}
+  .btn-frame-wrap::after{bottom:0;right:0;border-left:none;border-top:none;}
+  .btn-frame-wrap:hover::before,
+  .btn-frame-wrap:hover::after{width:100%;height:100%;}
+  .btn-frame{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 24px;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:0.98rem;
+    color:var(--text);
+    background:var(--surface);
+    border:1px solid var(--border);
+    cursor:pointer;
+    z-index:1;
+    transition:color .3s ease;
+  }
+  .btn-frame .arrow{
+    font-family:'Space Mono', monospace;
+    font-style:normal;
+    font-size:0.85rem;
+    color:var(--teal);
+    transition:transform .3s ease;
+  }
+  .btn-frame-wrap:hover .btn-frame{color:var(--gold);}
+  .btn-frame-wrap:hover .arrow{transform:translateX(6px);}
 
   /* ---------- SECTION SHARED ---------- */
   section{
@@ -372,6 +423,16 @@
   .work-card .btn{
     align-self:flex-start;
     margin-top:10px;
+  }
+  .work-card-actions{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:14px;
+    margin-top:10px;
+  }
+  .work-card-actions .btn{
+    margin-top:0;
   }
   .work-note{
     text-align:center;
@@ -565,6 +626,7 @@
     <p class="hero-sub">AussieOS is a research and protocol collective publishing frameworks, field guides, and specifications for a fairer digital Australia.</p>
     <div class="hero-actions">
       <a href="https://aussieos.xyz/builtdifferent" class="btn btn-gold">Read Built Different</a>
+      <div class="btn-frame-wrap"><a href="https://aussieos.xyz/apps/hall-of-mirrors/" class="btn-frame">Enter Hall of Mirrors <span class="arrow">→</span></a></div>
       <a href="https://aussieos.xyz/fairgo/" class="btn btn-outline-teal">Explore FairGo</a>
     </div>
   </section>
@@ -601,14 +663,20 @@
           <h3 class="serif">Built Different</h3>
           <p class="work-sub">The unvarnished guide to building, funding, and scaling a startup in Australia.</p>
           <p class="work-desc">Hall of Mirrors framework. What the ecosystem actually looks like from inside the rooms. 25+ sources. No fluff.</p>
-          <a href="https://aussieos.xyz/builtdifferent" class="btn btn-gold">Read the Report</a>
+          <div class="work-card-actions">
+            <a href="https://aussieos.xyz/builtdifferent" class="btn btn-gold">Read the Report</a>
+            <div class="btn-frame-wrap"><a href="https://aussieos.xyz/apps/hall-of-mirrors/" class="btn-frame">Enter Hall of Mirrors <span class="arrow">→</span></a></div>
+          </div>
         </article>
         <article class="work-card teal-accent">
           <span class="work-tag">Protocol Specification — v1.0</span>
           <h3 class="serif">FairGo</h3>
           <p class="work-sub">A cultural-technical protocol that encodes fairness as a measurable, auditable variable across agents and DAOs.</p>
           <p class="work-desc">FGV score. MatesDAO governance. Solana attestation layer. Built on Australian values.</p>
-          <a href="https://aussieos.xyz/fairgo/" class="btn btn-outline-teal">Read the Specification</a>
+          <div class="work-card-actions">
+            <a href="https://aussieos.xyz/fairgo/" class="btn btn-teal-solid">Explore FairGo</a>
+            <a href="https://fairgodashboard.netlify.app/" class="btn btn-outline-teal">Check a Wallet</a>
+          </div>
         </article>
       </div>
       <p class="work-note">More work in progress. Fork us. Contribute. Build with us.</p>
