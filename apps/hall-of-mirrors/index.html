@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0A">
+<title>Hall of Mirrors — See How VCs, Angels & Grants Actually Read Your Startup | AussieOS</title>
+<meta name="description" content="Free Claude skill. Your startup is read six different ways — VC, angels, government, grants, accelerators, corporates — and most founders don't find out where those readings clash until it costs them a round or a grant. Run the diagnostic before they do.">
+
+<meta property="og:title" content="You're pitching one story. The ecosystem is reading six.">
+<meta property="og:description" content="A free Claude skill that shows exactly where your startup is fundable to a VC and ineligible to a grants body — before you find out the hard way. From the makers of Built Different.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AussieOS">
+<meta property="og:url" content="https://aussieos.xyz/apps/hall-of-mirrors/">
+<meta property="og:image" content="https://raw.githubusercontent.com/aussieOS/aussieOS/45160b866ea22ca9b266a21cf8af4934aaa3532e/builtdifferent/assets/THE%20HALL%20OF%20MIRRORS.png">
+<meta property="og:image:alt" content="Hall of Mirrors — a founder legibility diagnostic from AussieOS.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aussieosxyz">
+<meta name="twitter:title" content="You're pitching one story. The ecosystem is reading six.">
+<meta name="twitter:description" content="A free Claude skill that shows exactly where your startup is fundable to a VC and ineligible to a grants body — before you find out the hard way. From the makers of Built Different.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aussieOS/aussieOS/45160b866ea22ca9b266a21cf8af4934aaa3532e/builtdifferent/assets/THE%20HALL%20OF%20MIRRORS.png">
+<meta name="twitter:image:alt" content="Hall of Mirrors — a founder legibility diagnostic from AussieOS.">
+
+<link rel="canonical" href="https://aussieos.xyz/apps/hall-of-mirrors/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0A0A0A;
+    --surface:#111111;
+    --surface-2:#161616;
+    --gold:#C9A84C;
+    --teal:#00B4A6;
+    --text:#E8E8E8;
+    --muted:#888888;
+    --border:rgba(255,255,255,0.08);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:#0A0A0A;}
+  html, body{background-color:#0A0A0A;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--gold);color:#0A0A0A;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  .mono{font-family:'Space Mono', monospace;}
+  .serif{font-family:'Playfair Display', serif;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .wrap-narrow{max-width:860px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    padding:22px 0;background:transparent;
+    border-bottom:1px solid transparent;
+    transition:background .35s ease, border-color .35s ease, padding .35s ease;
+  }
+  header.site-nav.scrolled,
+  header.site-nav.panel-open{
+    background:rgba(10,10,10,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{
+    font-family:'Space Mono', monospace;font-weight:700;
+    letter-spacing:0.02em;color:var(--gold);font-size:1.05rem;
+  }
+  .wordmark span{color:var(--text);}
+  nav.links{display:flex;gap:36px;align-items:center;}
+  nav.links a{
+    font-family:'Inter', sans-serif;font-size:0.88rem;font-weight:500;
+    color:var(--text);opacity:0.82;
+    transition:opacity .2s ease, color .2s ease;position:relative;
+  }
+  nav.links a:hover{opacity:1;color:var(--gold);}
+  nav.links a.back{opacity:0.6;font-family:'Space Mono',monospace;font-size:0.8rem;}
+  nav.links a.back:hover{color:var(--gold);opacity:1;}
+
+  .hamburger{
+    display:none;flex-direction:column;gap:5px;background:none;
+    border:none;cursor:pointer;padding:6px;z-index:110;
+  }
+  .hamburger span{width:22px;height:2px;background:var(--gold);display:block;transition:transform .25s ease, opacity .25s ease;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-panel{
+    position:fixed;inset:0;background:#0A0A0A;z-index:105;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:32px;transform:translateY(-100%);transition:transform .35s ease;
+  }
+  .mobile-panel.open{transform:translateY(0);}
+  .mobile-panel a{font-family:'Playfair Display', serif;font-size:1.6rem;}
+
+  @media (max-width:768px){
+    nav.links{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;
+    padding:150px 24px 80px;position:relative;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.10), transparent 70%),
+      var(--bg);
+  }
+  .hero-kicker{
+    font-family:'Space Mono', monospace;color:var(--gold);
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  .hero-kicker .sep{color:var(--muted);margin:0 10px;}
+
+  .terminal{
+    width:100%;max-width:620px;background:var(--surface);
+    border:1px solid var(--border);border-radius:8px;overflow:hidden;
+    text-align:left;box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-header{
+    display:flex;align-items:center;gap:8px;padding:12px 16px;
+    background:var(--surface-2);border-bottom:1px solid var(--border);
+  }
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dot.red{background:#FF5F56;}
+  .dot.yellow{background:#FFBD2E;}
+  .dot.green{background:#27C93F;}
+  .terminal-filename{margin-left:8px;font-family:'Space Mono', monospace;font-size:0.78rem;color:var(--muted);}
+  .terminal-body{
+    padding:22px 20px;font-family:'Space Mono', monospace;font-size:0.86rem;
+    line-height:1.85;color:var(--text);min-height:210px;white-space:pre-wrap;
+  }
+  .cursor{
+    display:inline-block;width:8px;height:1em;background:var(--gold);
+    vertical-align:text-bottom;animation:blink 1s steps(1) infinite;margin-left:1px;
+  }
+  @keyframes blink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
+
+  .hero-headline{
+    font-family:'Playfair Display', serif;font-weight:600;
+    font-size:clamp(2.2rem, 5.4vw, 3.6rem);margin-top:48px;
+    max-width:820px;line-height:1.18;
+  }
+  .hero-sub{margin-top:22px;max-width:600px;color:var(--muted);font-size:1.02rem;}
+  .hero-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .hero-learn{
+    margin-top:24px;font-family:'Space Mono',monospace;font-size:0.82rem;
+    color:var(--muted);
+  }
+  .hero-learn a{color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:1px;}
+  .hero-learn a:hover{border-color:var(--gold);}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 26px;
+    border-radius:4px;font-family:'Inter', sans-serif;font-weight:600;font-size:0.9rem;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    cursor:pointer;border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:#0A0A0A;}
+  .btn-gold:hover{transform:translateY(-2px);background:#dab95c;}
+  .btn-outline-gold{border-color:var(--gold);color:var(--gold);background:transparent;}
+  .btn-outline-gold:hover{transform:translateY(-2px);background:rgba(201,168,76,0.08);}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:104px 0;border-top:1px solid var(--border);}
+  .section-label{
+    font-family:'Space Mono', monospace;color:var(--gold);font-size:0.78rem;
+    letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:block;
+  }
+  .section-title{
+    font-family:'Playfair Display',serif;font-weight:600;
+    font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.2;max-width:720px;
+  }
+  .section-intro{margin-top:20px;max-width:680px;color:var(--muted);font-size:1rem;}
+  .section-intro strong{color:var(--text);font-weight:500;}
+
+  /* ---------- WHAT IT IS ---------- */
+  .premise{
+    display:grid;grid-template-columns:1fr;gap:28px;margin-top:8px;
+    align-items:start;
+  }
+  @media(min-width:860px){.premise{grid-template-columns:1.1fr 0.9fr;gap:56px;}}
+  .premise-copy p{color:var(--text);opacity:0.88;font-size:1rem;margin-bottom:16px;max-width:560px;}
+  .premise-copy p strong{color:var(--gold);font-weight:600;}
+  .premise-aside{
+    background:var(--surface);border:1px solid var(--border);
+    border-left:4px solid var(--gold);border-radius:8px;padding:28px 26px;
+  }
+  .premise-aside h4{
+    font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:16px;
+  }
+  .premise-aside ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .premise-aside li{font-size:0.92rem;color:var(--muted);padding-left:20px;position:relative;}
+  .premise-aside li::before{content:"→";position:absolute;left:0;color:var(--gold);}
+  .premise-aside li strong{color:var(--text);font-weight:500;}
+
+  /* ---------- THE ROOMS ---------- */
+  .rooms-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:40px;}
+  @media(min-width:720px){.rooms-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1000px){.rooms-grid{grid-template-columns:1fr 1fr 1fr;}}
+  .room-card{
+    background:var(--surface);border:1px solid var(--border);
+    border-top:3px solid var(--gold);border-radius:6px;padding:28px 24px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .room-num{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;}
+  .room-card h3{font-family:'Playfair Display',serif;font-size:1.35rem;line-height:1.2;}
+  .room-grammar{font-size:0.82rem;color:var(--gold);font-family:'Space Mono',monospace;}
+  .room-card p{color:var(--muted);font-size:0.9rem;}
+  .room-card .reads{color:var(--text);opacity:0.82;}
+  .room-card .blind{color:var(--muted);}
+  .room-card .blind b{color:#c98b6c;font-weight:500;}
+  .rooms-map{
+    margin-top:18px;background:var(--surface);border:1px solid var(--border);
+    border-left:4px solid var(--teal);border-radius:6px;padding:30px 28px;
+  }
+  .rooms-map h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;}
+  .rooms-map p{color:var(--muted);font-size:0.96rem;max-width:820px;}
+  .rooms-overlay{
+    margin-top:18px;background:rgba(0,180,166,0.035);
+    border:1px dashed rgba(0,180,166,0.45);border-radius:6px;padding:28px 28px;
+  }
+  .overlay-tag{
+    display:block;font-family:'Space Mono',monospace;font-size:0.72rem;
+    letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;
+  }
+  .rooms-overlay h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:6px;}
+  .rooms-overlay h3 .overlay-sub{
+    font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--muted);
+    font-weight:400;margin-left:8px;letter-spacing:0.04em;
+  }
+  .overlay-grammar{font-family:'Space Mono',monospace;font-size:0.82rem;color:var(--teal);margin-bottom:12px;}
+  .rooms-overlay p{color:var(--muted);font-size:0.94rem;max-width:820px;margin-bottom:10px;}
+  .rooms-overlay p b{color:var(--text);font-weight:500;}
+  .rooms-overlay .overlay-blind b{color:#c98b6c;font-weight:500;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .flow{display:grid;grid-template-columns:1fr;gap:0;margin-top:36px;max-width:760px;}
+  .flow-step{
+    display:grid;grid-template-columns:64px 1fr;gap:24px;
+    padding:24px 0;border-bottom:1px solid var(--border);
+  }
+  .flow-step:last-child{border-bottom:none;}
+  .flow-num{font-family:'Space Mono',monospace;font-size:1.6rem;color:var(--gold);font-weight:700;line-height:1;opacity:0.85;}
+  .flow-step h4{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:8px;}
+  .flow-step p{color:var(--muted);font-size:0.94rem;max-width:600px;}
+  @media(max-width:560px){
+    .flow-step{grid-template-columns:1fr;gap:6px;}
+    .flow-num{font-size:1.3rem;}
+  }
+
+  /* ---------- INSTALL BOX ---------- */
+  .install-box{
+    background:var(--surface);border:1px solid var(--border);
+    border-left:4px solid var(--gold);border-radius:8px;
+    padding:36px 34px;margin-top:12px;max-width:820px;
+  }
+  .install-box h3{
+    font-family:'Space Mono',monospace;font-size:0.9rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--text);margin-bottom:26px;
+  }
+  .install-box h3 .secs{color:var(--muted);}
+  .install-steps{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:18px;}
+  .install-steps li{
+    display:flex;gap:16px;align-items:flex-start;
+    counter-increment:step;font-size:0.96rem;color:var(--text);
+  }
+  .install-steps li::before{
+    content:counter(step);
+    flex:0 0 28px;width:28px;height:28px;border-radius:50%;
+    background:var(--gold);color:#0A0A0A;
+    font-family:'Space Mono',monospace;font-weight:700;font-size:0.85rem;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:1px;
+  }
+  .install-steps .step-body{flex:1 1 auto;min-width:0;line-height:1.55;}
+  .install-steps code{
+    font-family:'Space Mono',monospace;font-size:0.86em;
+    background:var(--surface-2);border:1px solid var(--border);
+    padding:2px 7px;border-radius:3px;color:var(--gold);
+    white-space:nowrap;word-break:normal;
+  }
+  .install-steps .step-body a{color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.4);}
+  .install-steps .step-body a:hover{border-color:var(--gold);}
+  .install-note{
+    margin-top:26px;padding-top:22px;border-top:1px solid var(--border);
+    color:var(--muted);font-size:0.85rem;font-family:'Space Mono',monospace;line-height:1.7;
+  }
+
+  /* ---------- PROMPTS ---------- */
+  .prompts-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:40px;}
+  @media(min-width:820px){.prompts-grid{grid-template-columns:1fr 1fr;}}
+  .prompt-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:8px;
+    padding:26px 24px;display:flex;flex-direction:column;gap:14px;
+  }
+  .prompt-tag{
+    font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--gold);
+  }
+  .prompt-text{
+    font-family:'Space Mono',monospace;font-size:0.88rem;line-height:1.7;
+    color:var(--text);background:var(--bg);border:1px solid var(--border);
+    border-radius:5px;padding:16px 16px;
+  }
+  .prompt-text .fill{color:var(--gold);}
+  .prompt-why{color:var(--muted);font-size:0.85rem;}
+
+  /* ---------- THE PROMPT (copy-paste) ---------- */
+  .prompt-block-head{
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:16px;margin-top:36px;margin-bottom:16px;
+  }
+  .prompt-block-head p{color:var(--muted);font-size:0.92rem;max-width:560px;}
+  .copy-btn{
+    display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:4px;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:0.85rem;cursor:pointer;
+    border:1px solid var(--gold);color:var(--gold);background:transparent;
+    transition:background .2s ease, color .2s ease, transform .2s ease;white-space:nowrap;
+  }
+  .copy-btn:hover{background:rgba(201,168,76,0.08);transform:translateY(-1px);}
+  .copy-btn.copied{background:var(--gold);color:#0A0A0A;}
+  .prompt-source{
+    background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;
+  }
+  .prompt-source .terminal-header{background:var(--surface-2);}
+  .prompt-source pre{
+    margin:0;padding:24px 22px;font-family:'Space Mono',monospace;font-size:0.8rem;
+    line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word;
+    max-height:440px;overflow-y:auto;
+  }
+  .prompt-source pre::-webkit-scrollbar{width:10px;}
+  .prompt-source pre::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:5px;}
+
+  /* ---------- CTA STRIP ---------- */
+  .cta-strip{text-align:center;}
+  .cta-strip .section-title{margin:0 auto;}
+  .cta-strip .hero-actions{margin-top:34px;}
+  .share-strip{text-align:center;border-top:1px solid var(--border);padding-top:90px;padding-bottom:100px;}
+  .share-strip .section-intro{margin-top:18px;}
+  .share-strip .hero-actions{margin-top:30px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0A0A0A;border-top:1px solid var(--border);padding:56px 0 36px;}
+  .footer-inner{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
+  .footer-wordmark{font-family:'Space Mono', monospace;color:var(--gold);font-weight:700;font-size:1rem;}
+  .footer-links{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;font-size:0.85rem;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-contact{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;font-size:0.85rem;color:var(--muted);}
+  .footer-contact a:hover{color:var(--teal);}
+  .footer-meta{color:var(--muted);font-size:0.78rem;font-family:'Space Mono', monospace;margin-top:8px;}
+  .footer-tagline{color:var(--muted);font-size:0.78rem;font-family:'Space Mono', monospace;}
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="https://aussieos.xyz/" class="wordmark">Aussie<span>OS</span></a>
+    <nav class="links">
+      <a href="#what">What It Is</a>
+      <a href="#rooms">The Rooms</a>
+      <a href="#install">Install</a>
+      <a href="#prompts">Prompts</a>
+      <a href="https://aussieos.xyz/" class="back">← aussieos.xyz</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#what">What It Is</a>
+  <a href="#rooms">The Rooms</a>
+  <a href="#install">Install</a>
+  <a href="#prompts">Prompts</a>
+  <a href="https://aussieos.xyz/">← aussieos.xyz</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="hero-kicker">Hall of Mirrors <span class="sep">/</span> A Claude Skill</div>
+    <div class="terminal">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-filename">hall-of-mirrors.sh</span>
+      </div>
+      <div class="terminal-body" id="heroTerminal"></div>
+    </div>
+
+    <h1 class="hero-headline">Step inside. See how the ecosystem actually reads you.</h1>
+    <p class="hero-sub">Six rooms. Six mirrors. Behind each one is a different version of your startup — fundable in one, unintelligible in the next. Walk through all six and see exactly where those reflections stop agreeing with each other.</p>
+    <div class="hero-actions">
+      <a href="./hall-of-mirrors.skill" download class="btn btn-gold">↓ Download Claude Skill</a>
+      <a href="#prompt" class="btn btn-outline-gold">Copy the Prompt</a>
+    </div>
+    <p class="hero-learn">Born out of the Hall of Mirrors framework in <a href="https://aussieos.xyz/builtdifferent/">Built Different →</a></p>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section id="what">
+    <div class="wrap">
+      <span class="section-label">What It Is</span>
+      <h2 class="section-title">The Australian innovation system isn't a funnel. It's a hall of mirrors.</h2>
+      <div class="premise" style="margin-top:40px;">
+        <div class="premise-copy">
+          <p>Founders are taught to optimise one pitch for one audience. But you don't tell one story to six rooms — you're <strong>read by six incompatible grammars at once</strong>. Venture capital, angel investors, government, grants, accelerators, and corporates each apply their own success criteria to the exact same company — with the Web3 and open-source world reading you on a seventh set of rails entirely.</p>
+          <p>The same fact that makes you fundable in one room makes you unintelligible or ineligible in the next. Grant revenue reads as traction to a grants body and as non-revenue to a VC. Open-source proof is currency in a builder network and a missing moat to an investor.</p>
+          <p>Most founders discover these contradictions the expensive way — a knock-back, a stalled procurement, a passed round. This skill surfaces them first, so <strong>coherence across the rooms becomes a thing you design, not a thing you find out about.</strong></p>
+        </div>
+        <div class="premise-aside">
+          <h4>What it returns</h4>
+          <ul>
+            <li>Six <strong>parallel readings</strong> — one per room, in that room's own language</li>
+            <li>An <strong>optional Web3 / open-source overlay</strong> — read only if you build in those spaces</li>
+            <li>A <strong>misalignment map</strong> — where a claim is legible in one room and illegible in another</li>
+            <li>Each tension tagged <strong>narrative</strong> (reframe) or <strong>structural</strong> (a real fork)</li>
+            <li>A <strong>coherence check</strong> — is there one true story that holds across all six, or a choice you have to make</li>
+            <li>No scores. No rankings. Readings only — because a score would flatten the whole point.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ROOMS -->
+  <section id="rooms">
+    <div class="wrap">
+      <span class="section-label">The Six Rooms</span>
+      <h2 class="section-title">Walk through, one mirror at a time.</h2>
+      <div class="rooms-grid">
+
+        <article class="room-card">
+          <span class="room-num">ROOM 01</span>
+          <h3>Venture Capital</h3>
+          <span class="room-grammar">grammar: power-law returns</span>
+          <p class="reads">Reads for a fund-returning market, growth rate over absolute numbers, founder signal, defensibility, and a credible path beyond the domestic market.</p>
+          <p class="blind">Illegible: <b>grant-dependent revenue, linear economics, sovereign framing, lifestyle economics in a startup costume.</b></p>
+        </article>
+
+        <article class="room-card">
+          <span class="room-num">ROOM 02</span>
+          <h3>Angels</h3>
+          <span class="room-grammar">grammar: personal conviction</span>
+          <p class="reads">Reads through an individual's own money and judgment, not a fund mandate: founder relationship and trust, early belief before institutional validation, a space they personally care about, and whether they'd want to be involved. Moves on conviction a fund can't justify.</p>
+          <p class="blind">Illegible: <b>over-formalised institutional decks, "dumb money" framing, anything that only matters at large-round scale, no personal hook.</b></p>
+        </article>
+
+        <article class="room-card">
+          <span class="room-num">ROOM 03</span>
+          <h3>Government</h3>
+          <span class="room-grammar">grammar: national interest</span>
+          <p class="reads">Reads you as a policy instrument: alignment with stated priorities, sovereign capability, supply-chain security, and regional or employment benefit someone can defend publicly.</p>
+          <p class="blind">Illegible: <b>pure profit motive with no public dimension, offshore-first structure, capital or capability leaving the country.</b></p>
+        </article>
+
+        <article class="room-card">
+          <span class="room-num">ROOM 04</span>
+          <h3>Grants</h3>
+          <span class="room-grammar">grammar: eligibility &amp; additionality</span>
+          <p class="reads">Reads for criteria compliance as written, additionality, matched funding, milestone deliverability, and acquittal discipline. Rewards the boring, well-documented truth.</p>
+          <p class="blind">Illegible: <b>speed as virtue, growth-at-all-costs, equity upside, pivots after award, hype of any kind.</b></p>
+        </article>
+
+        <article class="room-card">
+          <span class="room-num">ROOM 05</span>
+          <h3>Accelerators</h3>
+          <span class="room-grammar">grammar: momentum &amp; coachability</span>
+          <p class="reads">Reads for traction velocity, a compressible demo-day narrative, cohort fit, and a story arc that visibly improves inside a program-length window.</p>
+          <p class="blind">Illegible: <b>deep-tech timelines, regulatory gating, founders who read as finished rather than mouldable.</b></p>
+        </article>
+
+        <article class="room-card">
+          <span class="room-num">ROOM 06</span>
+          <h3>Corporates</h3>
+          <span class="room-grammar">grammar: procurement risk</span>
+          <p class="reads">Reads for vendor stability, compliance and security posture, pilot-ability inside existing process, and whether the internal sponsor's career gets safer or riskier.</p>
+          <p class="blind">Illegible: <b>tiny teams near production systems, open-ended experiments, framings that require the corporate to change.</b></p>
+        </article>
+
+      </div>
+
+      <div class="rooms-overlay">
+        <span class="overlay-tag">+ Optional seventh layer — read only if it applies to you</span>
+        <h3>Emerging Ecosystems <span class="overlay-sub">Web3 / open-source</span></h3>
+        <p class="overlay-grammar">grammar: verifiable contribution</p>
+        <p>Not one of the six institutional rooms — a parallel layer on different rails. The diagnostic reads it <b>only if you're actually building in crypto, open-source, or builder networks</b>, and skips it otherwise. Reads for on-chain or in-repo proof, community credibility, building in public, and ecosystem alignment. Receipts over narrative.</p>
+        <p class="overlay-blind">Illegible: <b>closed IP as a moat, equity-story framing, credential-led claims, anything a block explorer or git log can't verify.</b></p>
+      </div>
+
+      <div class="rooms-map">
+        <h3>Then: the map between them.</h3>
+        <p>The rooms are the easy part. The value is in the contradictions across them — where the same fact is currency in one room and disqualifying in the next — and whether you can hold one true story that survives all six, or have to choose which mirror to walk away from.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">The method, step by step.</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div><h4>Intake</h4><p>You describe the company in plain terms and list what actually exists today — revenue, users, product, pilots, prior grants, team, IP. If evidence is missing, the skill reads the absence rather than inventing traction to fill it.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div><h4>Six readings</h4><p>Each room parses the company through its own grammar and reports what's legible, what's illegible or ineligible, and what it would ask for next — plus an optional seventh reading if you build in Web3 or open-source.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div><h4>Misalignment map</h4><p>Only the tensions that actually arise from your intake — each named by the claim involved, the room it helps, the room it hurts, and whether it's a narrative or structural conflict.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div><h4>Translation layer</h4><p>Per room, the adjustment that improves legibility — labelled as a reframe, a real structural change, or a receipt you need to produce. It won't pretend a reframe can fix a structural fork.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">05</div>
+          <div><h4>Coherence check</h4><p>The hard question: is there one true story that holds across all six rooms you need? If yes, it states it. If no, it names the fork and what choosing costs.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install">
+    <div class="wrap">
+      <span class="section-label">Install</span>
+      <h2 class="section-title">Add the skill to Claude in about a minute.</h2>
+      <p class="section-intro">A Claude skill is a reusable instruction set Claude loads automatically when it's relevant. You install it once and it's available in every chat. You'll need a Claude plan that supports custom skills.</p>
+      <div class="install-box">
+        <h3>How to install <span class="secs">— 60 seconds</span></h3>
+        <ol class="install-steps">
+          <li><span class="step-body"><a href="./hall-of-mirrors.skill" download>Download <code>hall-of-mirrors.skill</code></a> using the button below — keep it as-is, don't unzip it</span></li>
+          <li><span class="step-body">Open Claude on the web (<code>claude.ai</code>) or the desktop app</span></li>
+          <li><span class="step-body">Go to <code>Settings → Customize → Skills</code></span></li>
+          <li><span class="step-body">Click the <code>+</code> button, then <code>Upload skill</code></span></li>
+          <li><span class="step-body">Select the <code>hall-of-mirrors.skill</code> file you downloaded</span></li>
+          <li><span class="step-body">Toggle it on. Open a fresh chat — it now fires whenever you ask it to stress-test how your startup reads across the ecosystem</span></li>
+        </ol>
+        <div class="install-note">
+          Prefer a .zip? Some versions of the uploader want <code>.zip</code> instead of <code>.skill</code> — the download button offers both. The contents are identical.<br>
+          No account, no skill? You can skip installing entirely and just paste the raw prompt below into any Claude chat.
+        </div>
+      </div>
+      <div class="hero-actions" style="justify-content:flex-start;margin-top:28px;">
+        <a href="./hall-of-mirrors.skill" download class="btn btn-gold">↓ Download .skill</a>
+        <a href="./hall-of-mirrors.zip" download class="btn btn-outline-gold">↓ Download .zip</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMPTS -->
+  <section id="prompts">
+    <div class="wrap">
+      <span class="section-label">Try These</span>
+      <h2 class="section-title">What to say once it's installed.</h2>
+      <p class="section-intro">The skill does its best work with real material. Paste the actual thing — a deck, your numbers, a draft application — rather than describing it. Swap the <span style="color:var(--gold)">gold</span> parts for your own.</p>
+      <div class="prompts-grid">
+
+        <article class="prompt-card">
+          <span class="prompt-tag">Run the full diagnostic</span>
+          <div class="prompt-text">Here's my pitch deck: <span class="fill">[paste deck text or attach the file]</span>. Run the Hall of Mirrors across all six rooms and show me where I read as fundable versus where I'm ineligible or unintelligible.</div>
+          <p class="prompt-why">The core use. Best with your real deck attached, not a summary — the rooms read what's actually there.</p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="prompt-tag">Pressure-test your numbers</span>
+          <div class="prompt-text">Here are our latest results: <span class="fill">[paste revenue, growth, runway, customer mix]</span>. Which rooms read these numbers as strength, and which read the same numbers as a red flag?</div>
+          <p class="prompt-why">Surfaces the traps where one metric flips meaning between rooms — grant revenue vs VC revenue, or what reads as conviction to an angel and as thin traction to a fund.</p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="prompt-tag">Catch a live contradiction</span>
+          <div class="prompt-text">I'm applying for a government grant and raising a pre-seed at the same time. Here's what I'm telling each: <span class="fill">[paste both framings]</span>. Show me exactly where these two stories contradict each other.</div>
+          <p class="prompt-why">The classic structural fork. Tells you whether it's a reframe or a genuine choice you have to make.</p>
+        </article>
+
+        <article class="prompt-card">
+          <span class="prompt-tag">Pre-flight an application</span>
+          <div class="prompt-text">Before I submit this accelerator application — <span class="fill">[paste it]</span> — tell me what the accelerator room actually sees, what it can't see, and what it would ask for next.</div>
+          <p class="prompt-why">Single-room deep read. Useful right before you hit send on anything the ecosystem will judge.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROMPT (copy-paste) -->
+  <section id="prompt">
+    <div class="wrap">
+      <span class="section-label">The Prompt</span>
+      <h2 class="section-title">No skill support? Paste this straight into any chat.</h2>
+      <div class="prompt-block-head">
+        <p>This is the same instruction set the skill runs on. Drop it into Claude, ChatGPT, or any capable model, then give it your intake in the next message.</p>
+        <button class="copy-btn" id="copyBtn">Copy prompt</button>
+      </div>
+      <div class="prompt-source">
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-filename">hall-of-mirrors.prompt</span>
+        </div>
+        <pre id="promptText">You are Hall of Mirrors, a legibility diagnostic for startup founders operating in the Australian innovation system. Your premise: the ecosystem is not a funnel but a set of overlapping interpretation systems. The same company is simultaneously read by six incompatible grammars — venture capital, angels, government, grants, accelerators, and corporates — with an optional seventh overlay for emerging ecosystems (Web3/open-source). Your job is to make each reading visible in parallel and map where they contradict, so misalignment is revealed before it becomes friction.
+
+RULES
+1. Derived, not invented. Every reading must trace to what the founder supplied. Absent evidence is read as absence — never fabricate traction, revenue, or capability. Say "this room sees nothing here."
+2. Archetype-level only. Never name real funds, programs, accelerators, or corporates. Describe rooms by structural logic, not brands.
+3. No scores, ratings, or rankings. Readings and misalignments only.
+4. You do not polish pitches for a single audience. If pushed that way, redirect to cross-room coherence and its costs.
+5. Voice: plainspoken, dry, anti-hype, pro-receipts. Bad news stated plainly.
+
+INTAKE (required before any reading)
+- What the company does, in plain terms
+- Hard evidence that exists today: revenue, users, product, pilots, LOIs, prior grants, team, IP, runway
+- What the founder currently tells each audience, if anything
+- Which rooms they are engaging, and whether they build in Web3 / open-source (decides the overlay)
+Ask once for gaps. Then proceed, marking remaining gaps "unread — no evidence supplied." If the founder is not building in Australia, keep the six-room structure but adapt each room's texture to their actual market (fund sizes, incentives, sovereign framing), and say plainly that you've done this.
+
+THE SIX ROOMS — each reading gives: how the room parses the company / what is legible / what is illegible or ineligible / what the room asks for next.
+
+VC: grammar of power-law returns. Reads for fund-returning market size, growth rate, founder signal, defensibility, credible path beyond the domestic market. Capital efficiency reads well because local funds are smaller and follow-on is scarce. Illegible: grant-dependent revenue (reads as non-revenue), linear economics, sovereign framing, lifestyle economics in startup costume.
+
+ANGELS: grammar of personal conviction. Reads through an individual's own money and judgment, not a fund mandate: founder relationship and trust, early belief before institutional validation, a story or space they personally care about, coachability, whether they'd want to be involved. Decides on conviction a fund can't justify, moves faster, smaller cheques, may weigh early-stage tax incentives. Illegible: over-formalised institutional decks, "dumb money" framing, anything that only matters at large-round scale, transactional pitches with no personal hook, founders who can't say why this person specifically.
+
+GOVERNMENT: grammar of national interest and sovereign capability. Reads the company as a policy instrument: alignment with stated priorities, sovereign/domestic capability, supply-chain security, regional and employment benefit, whether backing you advances a defensible agenda. Government as customer, regulator, and strategic backer. Illegible: pure profit motive with no public dimension, offshore-first structure, speed that outruns policy and procurement cycles, anything that reads as capital or capability leaving the country.
+
+GRANTS: grammar of eligibility and additionality. Reads for criteria compliance as written, additionality (would this happen anyway without the money?), matched funding, milestone deliverability, acquittal discipline, documentation. Pivots are suspicious; the company that applies must be the company that acquits. Illegible: speed as virtue, growth narrative, equity upside, hype. Rewards the boring, well-documented version of the truth.
+
+ACCELERATORS: grammar of momentum and coachability. Reads for traction velocity, compressible demo-day narrative, cohort fit, visible improvement within a program window. Illegible: deep-tech timelines, regulatory gating, founders who read as finished, proof cycles longer than the program.
+
+CORPORATES: grammar of procurement risk. Reads for vendor stability, compliance and security posture, pilot-ability inside existing process, and whether the internal sponsor's career gets safer or riskier. Innovation interest is shallow; procurement is deep. Illegible: tiny teams near production systems, open-ended experiments, framings requiring the corporate to change.
+
+OPTIONAL OVERLAY — EMERGING ECOSYSTEMS (Web3/open-source): not one of the six institutional rooms; a parallel layer on different rails. Read it ONLY if the founder is actually building in crypto, open-source, or builder-network spaces — otherwise skip it in one line. Grammar of verifiable contribution. Reads for on-chain or in-repo proof, community credibility, building in public, ecosystem alignment, bounty/builder-grant legibility. Receipts over narrative. Illegible: closed IP as moat, equity-story framing, credential-led claims, anything unverifiable by a block explorer or git log.
+
+MISALIGNMENT MAP
+After the readings, report only the tensions that actually arise from this founder's intake. For each: the claim or asset; where it creates legibility; where the same claim creates illegibility or ineligibility; and whether the tension is NARRATIVE (same truth, reframe needed) or STRUCTURAL (rooms demand incompatible things). Watch for, but only report if live: angel conviction vs institutional return math; open-source proof vs defensible IP; sovereign framing vs offshore expansion; grant revenue vs commercial revenue; milestone stability vs pivot agility; boring-truth register vs momentum register; public-benefit mandate vs power-law return.
+
+TRANSLATION LAYER
+Per room, state the adjustment that improves legibility and label it: narrative (reframe), structural (change something real), or evidentiary (produce a receipt). Never claim translation fixes a structural misalignment.
+
+COHERENCE CHECK
+Close with: is there one true underlying story that supports every framing this founder needs? If yes, state it in one paragraph. If no, name the fork — which rooms are compatible, which force a choice, and what the choice costs.
+
+OUTPUT ORDER: intake summary (gaps marked) → six room readings → optional overlay reading (only if they build in Web3/open-source, else a one-line skip) → misalignment map → translation layer → coherence check. Prose-first, no score tables, no emoji, no preamble.</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="wrap-narrow">
+      <span class="section-label" style="text-align:center;">Get Started</span>
+      <h2 class="section-title">Stop guessing which mirror you're standing in front of.</h2>
+      <div class="hero-actions">
+        <a href="./hall-of-mirrors.skill" download class="btn btn-gold">↓ Download Claude Skill</a>
+        <a href="https://aussieos.xyz/builtdifferent/" class="btn btn-outline-gold">Read Built Different</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="share-strip">
+    <div class="wrap-narrow">
+      <span class="section-label" style="text-align:center;">Pass It On</span>
+      <h2 class="section-title" style="margin:0 auto;">Know a founder standing in front of the wrong mirror?</h2>
+      <p class="section-intro" style="margin-left:auto;margin-right:auto;text-align:center;">Share the tool, not your results — Hall of Mirrors doesn't score you, so there's nothing to brag about. Just a diagnostic worth having before the pitch, not after.</p>
+      <div class="hero-actions">
+        <button id="shareXBtn" class="btn btn-outline-gold">Share Hall of Mirrors on X →</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-wordmark">AussieOS</div>
+    <div class="footer-links">
+      <a href="https://aussieos.xyz/builtdifferent">aussieos.xyz/builtdifferent</a>
+      <a href="https://aussieos.xyz/fairgo/">aussieos.xyz/fairgo</a>
+    </div>
+    <div class="footer-contact">
+      <a href="https://x.com/aussieosxyz/" target="_blank" rel="noopener">@aussieosxyz</a>
+      <a href="mailto:aussieosxyz@gmail.com">aussieosxyz@gmail.com</a>
+    </div>
+    <div class="footer-meta">CC BY-SA 4.0 — AussieOS Collective — 2025–2026</div>
+    <div class="footer-tagline">No cookies. No tracking. Just values.</div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    nav.classList.toggle('panel-open', isOpen);
+    hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Toggle menu');
+  });
+  mobilePanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobilePanel.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('panel-open');
+      hamburgerBtn.setAttribute('aria-label', 'Toggle menu');
+    });
+  });
+
+  // Copy prompt
+  const copyBtn = document.getElementById('copyBtn');
+  const promptText = document.getElementById('promptText');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(promptText.textContent.trim());
+      copyBtn.textContent = 'Copied ✓';
+      copyBtn.classList.add('copied');
+      setTimeout(() => { copyBtn.textContent = 'Copy prompt'; copyBtn.classList.remove('copied'); }, 2200);
+    } catch (e) {
+      const r = document.createRange();
+      r.selectNode(promptText);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      copyBtn.textContent = 'Select all → copy';
+    }
+  });
+
+  // Share on X
+  const shareXBtn = document.getElementById('shareXBtn');
+  shareXBtn.addEventListener('click', () => {
+    const pageUrl = 'https://aussieos.xyz/apps/hall-of-mirrors/';
+    const tweetText = "Every founder pitches one story. The ecosystem reads it six ways — VC, angels, government, grants, accelerators, corporates. Hall of Mirrors is a free Claude skill from @aussieosxyz that shows you all six readings before the gaps cost you something.";
+    const intentUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) + '&url=' + encodeURIComponent(pageUrl);
+    window.open(intentUrl, '_blank', 'noopener,noreferrer,width=600,height=520');
+  });
+
+  // Hero typewriter
+  const heroText = `run hall-of-mirrors.sh
+Loading interpretation systems...
+  [1] Venture Capital ....... online
+  [2] Angels ............... online
+  [3] Government ........... online
+  [4] Grants .............. online
+  [5] Accelerators ........ online
+  [6] Corporates .......... online
+  [+] Web3 / open-source ... standby
+Reading startup across all six rooms.`;
+  const heroTerminal = document.getElementById('heroTerminal');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function typewrite(el, text, speed){
+    let i = 0; el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    (function step(){
+      if(i < text.length){ el.textContent += text.charAt(i); i++; setTimeout(step, speed); }
+      else { el.appendChild(cursor); }
+    })();
+  }
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if(prefersReduced){
+        heroTerminal.textContent = heroText;
+        const c = document.createElement('span'); c.className = 'cursor'; heroTerminal.appendChild(c);
+      } else { typewrite(heroTerminal, heroText, 22); }
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
