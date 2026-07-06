@@ -75,6 +75,29 @@ export default function Page() {
           </p>
         </header>
 
+        <div className="border border-white/10 rounded-sm p-5 text-xs font-sans text-slate-400 leading-relaxed flex flex-col gap-3">
+          <span className="text-slate-300 uppercase tracking-[0.14em] text-[11px]">
+            What FairGo is today
+          </span>
+          <p>
+            <span className="text-slate-200">Runs today:</span> an off-chain scoring system — a
+            public rubric (the four parities), a TypeScript calculator, and this dashboard. It
+            produces FGV scores from self-reported assessments. Nothing about it is on-chain yet.
+          </p>
+          <p>
+            <span className="text-slate-200">Built, not deployed:</span> a Solana program
+            implementing this design exists in the open repo — unaudited, and not yet deployed to
+            any network.
+          </p>
+          <p>
+            <span className="text-slate-200">Planned:</span> building and deploying that program,
+            which adds the thing the off-chain version cannot have — attestations that are
+            timestamped and can&apos;t be quietly rewritten. Until it ships, an FGV score is a
+            structured self-assessment against a public rubric. It does not prove the assessment
+            is true, and nothing yet proves it hasn&apos;t changed.
+          </p>
+        </div>
+
         <InputPanel
           onWalletSubmit={handleWalletSubmit}
           onJsonSubmit={handleJsonSubmit}

@@ -526,6 +526,7 @@
     </button>
     <nav id="siteNav">
       <ul>
+        <li><a href="#status" data-nav>Status</a></li>
         <li><a href="#overview" data-nav>Overview</a></li>
         <li><a href="#variable" data-nav>The Variable</a></li>
         <li><a href="#governance" data-nav>Governance</a></li>
@@ -566,8 +567,33 @@
 
       <div class="btn-row">
         <a href="https://www.notion.so/FairGo-A-Cultural-Technical-Protocol-for-Measurable-Fairness-29593d942ed080efabafcce6269e4f96" class="btn btn-primary" target="_blank" rel="noopener">Read the Specification</a>
-        <a href="https://fairgodashboard.netlify.app/" class="btn btn-outline" target="_blank" rel="noopener">Check a Wallet</a>
+        <a href="https://fairgodashboard.netlify.app/" class="btn btn-outline" target="_blank" rel="noopener">See the Dashboard</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== 00 STATUS ===================== -->
+  <section id="status">
+    <div class="wrap">
+      <span class="label">00 / Status</span>
+      <h2 class="section-heading">What FairGo is today</h2>
+      <p style="max-width:720px;color:var(--muted);margin-bottom:32px;">Three tiers, stated plainly.</p>
+
+      <div class="card card-teal-left" style="margin-bottom:20px;">
+        <h4>Runs today</h4>
+        <p>an off-chain scoring system — a public rubric (the four parities), a TypeScript calculator, and a dashboard. It produces FGV scores from self-reported assessments. Nothing about it is on-chain yet.</p>
+      </div>
+      <div class="card card-teal-left" style="margin-bottom:20px;">
+        <h4>Built, not deployed</h4>
+        <p>a Solana program implementing this design exists in the open repo — unaudited, and not yet deployed to any network.</p>
+      </div>
+      <div class="card card-teal-left" style="margin-bottom:20px;">
+        <h4>Planned</h4>
+        <p>building and deploying that program, which adds the thing the off-chain version cannot have — attestations that are timestamped and can't be quietly rewritten. Until it ships, an FGV score is a structured self-assessment against a public rubric. It does not prove the assessment is true, and nothing yet proves it hasn't changed. That's the roadmap, and this page will say "deployed" only when it's deployed.</p>
+      </div>
+
+      <p style="max-width:720px;color:var(--muted);margin-top:32px;"><strong style="color:#fff;">On weighting:</strong> the four parities are equal-weighted. A convention, not a finding — weights become adjustable when attestation data exists to argue about.</p>
+      <p style="max-width:720px;color:var(--muted);margin-top:16px;"><strong style="color:#fff;">On governance:</strong> MatesDAO is the intended governance body. It doesn't yet exist as a functioning organisation, and nothing running today depends on it.</p>
     </div>
   </section>
 
@@ -771,7 +797,7 @@
         <div class="timeline-step">
           <div class="timeline-num">4</div>
           <h4>Record Immutability</h4>
-          <p>All decisions are stored on-chain or within a verifiable audit ledger for public accountability.</p>
+          <p>Once the Solana program is built, decisions will be stored on-chain or within a verifiable audit ledger for public accountability. Today, nothing about this step is on-chain.</p>
         </div>
       </div>
     </div>
@@ -820,7 +846,8 @@
     <div class="wrap">
       <span class="label">05 / Implementation</span>
       <h2 class="section-heading">Hybrid Architecture</h2>
-      <p style="max-width:720px;color:var(--muted);margin-bottom:44px;">FairGo distinguishes between computation and attestation layers to balance scalability and verifiability.</p>
+      <p style="max-width:720px;color:var(--muted);margin-bottom:12px;">FairGo distinguishes between computation and attestation layers to balance scalability and verifiability.</p>
+      <p style="max-width:720px;color:var(--gold);margin-bottom:44px;font-family:var(--font-mono);font-size:13px;">Everything below is specified, not built. No program is deployed, no endpoint below is live, and no event below has ever fired. See <a href="#status" style="color:var(--gold);text-decoration:underline;">Status</a> for what actually runs today.</p>
 
       <div class="arch-card">
         <div class="arch-col">
@@ -941,7 +968,7 @@
       <p class="cta-text">Wallets prove ownership. FairGo proves trust. This specification defines how that trust gets computed, attested, and governed — for builders on Solana, ethicists in policy, and civic innovators seeking fairness at scale.</p>
       <div class="btn-row">
         <a href="https://app.notion.com/p/FairGo-A-Cultural-Technical-Protocol-for-Measurable-Fairness-29593d942ed080efabafcce6269e4f96" class="btn btn-primary" target="_blank" rel="noopener">Read Specification on Notion</a>
-        <a href="https://fairgodashboard.netlify.app/" class="btn btn-outline" target="_blank" rel="noopener">Check a Wallet</a>
+        <a href="https://fairgodashboard.netlify.app/" class="btn btn-outline" target="_blank" rel="noopener">See the Dashboard</a>
       </div>
     </div>
   </section>
