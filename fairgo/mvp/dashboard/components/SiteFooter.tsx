@@ -19,7 +19,7 @@ export function SiteFooter() {
           </a>
           <a href="mailto:aussieosxyz@gmail.com">aussieosxyz@gmail.com</a>
         </div>
-        <div className="meta">FGV MVP &nbsp;·&nbsp; AussieOS Collective</div>
+        <div className="meta">FGV MVP &nbsp;·&nbsp; AussieOS</div>
       </div>
     </footer>
   );
