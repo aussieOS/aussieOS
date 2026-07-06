@@ -74,6 +74,20 @@ export function ResultsView({ record }: { record: DisplayRecord }) {
         <div className="mt-1 text-xs text-slate-500 font-sans uppercase tracking-[0.1em]">
           Statistical Confidence Range
         </div>
+        <p className="mt-4 text-xs text-slate-500 font-sans leading-relaxed max-w-xl">
+          FGV scores here are v0: self-reported assessments scored off-chain against the public
+          FairGo rubric. Nothing on this dashboard is on-chain yet — the Solana attestation layer
+          is designed and on the roadmap. A score shows what an organisation reported, not a
+          verified fact. Full detail:{" "}
+          <a
+            href="https://aussieos.xyz/fairgo/"
+            target="_blank"
+            rel="noopener"
+            className="underline hover:text-teal-400"
+          >
+            aussieos.xyz/fairgo.html
+          </a>
+        </p>
       </div>
 
       <div>
