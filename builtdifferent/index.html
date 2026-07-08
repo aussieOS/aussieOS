@@ -47,6 +47,8 @@
   .hero-meta-value{font-size:14px;font-weight:500;color:rgba(247,244,239,0.85);}
   .hero-meta-value a{color:var(--gold);text-decoration:none;}
   .hero-meta-value a:hover{text-decoration:underline;}
+  .hero-meta-disclosure{flex-basis:100%;max-width:640px;}
+  @media(max-width:720px){.hero-meta-disclosure{max-width:100%;}}
 
   .toc-strip{background:var(--slate);padding:20px 48px;position:sticky;top:0;z-index:100;overflow-x:auto;scrollbar-width:none;}
   .toc-strip::-webkit-scrollbar{display:none;}
@@ -256,9 +258,9 @@
         <span class="hero-meta-label">Scope</span>
         <span class="hero-meta-value">Capital · Policy · Ecosystem · Execution</span>
       </div>
-      <div class="hero-meta-item" style="max-width:340px;">
+      <div class="hero-meta-item hero-meta-disclosure">
         <span class="hero-meta-label">Disclosure</span>
-        <span class="hero-meta-value" style="font-size:12px;color:rgba(247,244,239,0.55);line-height:1.5;">This report originated from a Superteam Australia bounty. All sections were researched and written to the same evidentiary standard regardless of subject.</span>
+        <span class="hero-meta-value" style="font-size:12px;color:rgba(247,244,239,0.55);line-height:1.5;">This report originated from a Superteam Australia bounty. All sections were researched and written to the same evidentiary standard regardless of subject. It was researched and written with AI assistance and reflects the author's analysis and opinion — not legal, tax, financial, or professional advice. Where it touches things like RDTI, ESIC, or EMDG eligibility, verify your specific situation with a qualified adviser before acting.</span>
       </div>
     </div>
   </div>
@@ -1101,6 +1103,7 @@
     </div>
     <div class="footer-meta">CC BY-SA 4.0 — AussieOS — 2025–2026</div>
     <div class="footer-tagline">No cookies. No ads. Cookieless analytics only.</div>
+    <div class="footer-tagline">Analysis, not advice. Verify anything load-bearing — especially tax and grant eligibility — with a qualified professional.</div>
   </div>
 </footer>
 
